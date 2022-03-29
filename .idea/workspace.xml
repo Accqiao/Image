@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="016e3d73-a4d1-4bf1-9259-ddf92494cd53" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
+        <option value="Less File" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="26Jvu1xOrejU369eSbZ5N1Ygayc" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="D:/StuProject/WebStorm/carecenter" />
+    <property name="list.type.of.created.stylesheet" value="Less" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="E:\StuProject\WebStorm\react-Image\node_modules\prettier" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="ts.external.directory.path" value="E:\StuProject\WebStorm\react-Image\node_modules\typescript\lib" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\StuProject\WebStorm\react-Image\src\pages\Layout\Login" />
+      <recent name="E:\StuProject\WebStorm\react-Image\src\pages" />
+      <recent name="E:\StuProject\WebStorm\react-Image\src\component" />
+      <recent name="E:\StuProject\WebStorm\react-Image\src\pages\component" />
+      <recent name="E:\StuProject\WebStorm\react-Image\src" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\StuProject\WebStorm\react-Image\src\pages\User\UpLoad" />
+      <recent name="E:\StuProject\WebStorm\react-Image\src\pages\User\UserInfo" />
+      <recent name="E:\StuProject\WebStorm\react-Image\src\pages\Layout" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="start" />
+      <node-interpreter value="project" />
+      <package-manager value="yarn" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="016e3d73-a4d1-4bf1-9259-ddf92494cd53" name="Default Changelist" comment="" />
+      <created>1647154723875</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1647154723875</updated>
+      <workItem from="1647154724988" duration="3009000" />
+      <workItem from="1647161012808" duration="28528000" />
+      <workItem from="1647223642035" duration="27193000" />
+      <workItem from="1647411885096" duration="2881000" />
+      <workItem from="1647418308446" duration="1516000" />
+      <workItem from="1647439438808" duration="7000" />
+      <workItem from="1647440510139" duration="2648000" />
+      <workItem from="1647507553416" duration="686000" />
+      <workItem from="1647660509454" duration="11387000" />
+      <workItem from="1647929503357" duration="638000" />
+      <workItem from="1648097040798" duration="3766000" />
+      <workItem from="1648120692997" duration="2014000" />
+      <workItem from="1648212875726" duration="1294000" />
+      <workItem from="1648214748477" duration="10773000" />
+      <workItem from="1648429138565" duration="7117000" />
+      <workItem from="1648528058274" duration="72000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="230" y="67" width="1089" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1647155112703">
+      <screen x="0" y="0" width="1549" height="823" />
+    </state>
+    <state x="230" y="67" width="1089" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1549.823@0.0.1549.823" timestamp="1647155112703" />
+    <state x="538" y="212" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1647161698759">
+      <screen x="0" y="0" width="1549" height="823" />
+    </state>
+    <state x="538" y="212" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1549.823@0.0.1549.823" timestamp="1647161698759" />
+    <state x="505" y="158" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1647198067758">
+      <screen x="0" y="0" width="1549" height="823" />
+    </state>
+    <state x="505" y="158" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1549.823@0.0.1549.823" timestamp="1647198067758" />
+    <state x="555" y="167" key="FileChooserDialogImpl" timestamp="1647678327080">
+      <screen x="0" y="0" width="1549" height="823" />
+    </state>
+    <state x="555" y="167" key="FileChooserDialogImpl/0.0.1549.823@0.0.1549.823" timestamp="1647678327080" />
+    <state width="1528" height="115" key="GridCell.Tab.0.bottom" timestamp="1648470601345">
+      <screen x="0" y="0" width="1549" height="823" />
+    </state>
+    <state width="1528" height="115" key="GridCell.Tab.0.bottom/0.0.1549.823@0.0.1549.823" timestamp="1648470601345" />
+    <state width="1528" height="115" key="GridCell.Tab.0.center" timestamp="1648470601345">
+      <screen x="0" y="0" width="1549" height="823" />
+    </state>
+    <state width="1528" height="115" key="GridCell.Tab.0.center/0.0.1549.823@0.0.1549.823" timestamp="1648470601345" />
+    <state width="1528" height="115" key="GridCell.Tab.0.left" timestamp="1648470601345">
+      <screen x="0" y="0" width="1549" height="823" />
+    </state>
+    <state width="1528" height="115" key="GridCell.Tab.0.left/0.0.1549.823@0.0.1549.823" timestamp="1648470601345" />
+    <state width="1528" height="115" key="GridCell.Tab.0.right" timestamp="1648470601345">
+      <screen x="0" y="0" width="1549" height="823" />
+    </state>
+    <state width="1528" height="115" key="GridCell.Tab.0.right/0.0.1549.823@0.0.1549.823" timestamp="1648470601345" />
+    <state x="284" y="56" key="SettingsEditor" timestamp="1648528129789">
+      <screen x="0" y="0" width="1549" height="823" />
+    </state>
+    <state x="284" y="56" key="SettingsEditor/0.0.1549.823@0.0.1549.823" timestamp="1648528129789" />
+    <state x="432" y="187" key="run.anything.popup" timestamp="1647200362176">
+      <screen x="0" y="0" width="1549" height="823" />
+    </state>
+    <state x="432" y="187" key="run.anything.popup/0.0.1549.823@0.0.1549.823" timestamp="1647200362176" />
+  </component>
+</project>
