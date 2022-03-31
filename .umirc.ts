@@ -20,12 +20,7 @@ export default defineConfig({
         {
           path: '/search',
           name: '发现',
-          routes: [
-            {
-              path: '/newest',
-              name: '最新',
-            },
-          ],
+          component: '@/pages/Search/index'
         },
         {
           path: '/look',

@@ -4,9 +4,9 @@ import {useEffect, useState} from "react";
 import {CloudUploadOutlined, PlusOutlined} from "@ant-design/icons";
 import {RcFile} from "antd/es/upload";
 import UserInput from "@/pages/User/UserInfo/compoment/UserInput";
-import {Tag} from "@/types/types";
+import {TypeTag} from "@/types/types";
 import {toLogin} from "@/services/Login";
-import {upLoad_Finish} from "@/services/upLoadRequest";
+import {upLoad_Finish} from "@/services/UpLoadRequest";
 import {useModel} from "@@/plugin-model/useModel";
 
 interface PreImage {
@@ -19,7 +19,7 @@ interface PreImage {
   width?: string,
   height?: string,
   shape?: string,
-  tags?: Tag[],
+  tags?: TypeTag[],
   hash?: string,
   path?: string,
   ImageID: string,
@@ -143,6 +143,8 @@ export default ()=>{
             accept={".png,.jpeg,.jpg"}
             fileList={fileList}
             listType="picture-card"
+            multiple
+            maxCount={8}
             showUploadList={{showRemoveIcon:false}}
             onPreview={handlePreviewImage}
             beforeUpload={onBeforeUpload}
