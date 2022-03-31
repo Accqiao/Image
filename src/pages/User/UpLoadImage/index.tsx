@@ -4,6 +4,10 @@ import {useEffect, useState} from "react";
 import {CloudUploadOutlined, PlusOutlined} from "@ant-design/icons";
 import {RcFile} from "antd/es/upload";
 import UserInput from "@/pages/User/UserInfo/compoment/UserInput";
+import {Tag} from "@/types/types";
+import {toLogin} from "@/services/Login";
+import {upLoad_Finish} from "@/services/upLoadRequest";
+import {useModel} from "@@/plugin-model/useModel";
 
 interface PreImage {
   status: string,
@@ -15,25 +19,25 @@ interface PreImage {
   width?: string,
   height?: string,
   shape?: string,
+  tags?: Tag[],
+  hash?: string,
+  path?: string,
+  ImageID: string,
 }
 
 
 export default ()=>{
+  const { initialState,} = useModel("@@initialState");
   const [form] = Form.useForm();
   const [previewImage ,setPreviewImage] = useState<PreImage | null>();
   const [fileList ,setFileList] = useState<any[]>([]);
-
-
+  // console.log(initialState)
+  //当预览图片切换则更新表单
   useEffect(()=>{
-    console.log(previewImage)
-    //当预览图片切换则更新表单
+    console.log("change form",previewImage)
     form.resetFields();
   },[previewImage])
-
-
-
-
-
+  //图片上传之前判断
   const onBeforeUpload = (file: RcFile)=>{
     if (file.type !== "image/png" && file.type !== "image/jpeg") {
       message.error("仅支持上传jpg/png格式的文件");
@@ -45,63 +49,87 @@ export default ()=>{
     }
   }
 
-  const handleChange = (obj: any) => {
+  //图片上传改变状态
+  const onChange = (obj: any) => {
     const {file ,fileList ,event} = obj;
-    handlePreviewImage(file);
-    // if(file.status == 'done'){
-    //   const pre: PreImage = {
-    //     status: file.status,
-    //     type: file.type,
-    //     result: file.response.result,
-    //     message: file.response.message,
-    //   }
-    //   if(file.response.result){
-    //     pre.color = file.response.data[0];
-    //     pre.url = "http://localhost:8088/image/" + file.response.data[1];
-    //     pre.width = file.response.data[2];
-    //     pre.height = file.response.data[3];
-    //     pre.shape = file.response.data[4];
-    //   }
-    //   setPreviewImage(pre)
-    // }else if(file.status == 'error'){
-    //   setPreviewImage(null)
-    // }
-    console.log("onChange: " ,file,fileList,event)
-    setFileList(fileList)
-  };
+    // console.log("onChange: " ,file,fileList,event)
+    const tempList = fileList.filter((temp: any)=> temp.uid != file.uid)
+    if(!file.status){//去除被限制的图片
+      setFileList(tempList)
+    }else {
+      const flag = handlePreviewImage(file);
+      console.log(123,flag)
+      //获取图片信息
+      //获取tags
+      if(!flag){//如果返回false，去除该file
+        setFileList(tempList);
+      }else {
+        setFileList(fileList)
+      }
 
+    }
+  };
   //处理预览图片数据
   const handlePreviewImage = (file: any) => {
+    console.log('file',file)
     if(file.status == 'done'){
       const pre: PreImage = {
         status: file.status,
         type: file.type,
+        ImageID: file.uid,
+        //后台返回基础信息
         result: file.response.result,
-        message: file.responsemessage,
+        message: file.response.message,
       }
       if(file.response.result){
-        pre.color = file.response.data[0];
-        pre.url = "http://localhost:8088/image/" + file.response.data[1];
-        pre.width = file.response.data[2];
-        pre.height = file.response.data[3];
-        pre.shape = file.response.data[4];
+        pre.color= file.response.data.color;
+        pre.height= file.response.data.height;
+        pre.width= file.response.data.width;
+        pre.url= "http://localhost:8088/image/" + file.response.data.path;
+        pre.path= file.response.data.path;
+        pre.shape= file.response.data.shape;
+        pre.tags= file.response.data.tags;
+        pre.hash= file.response.data.hash;
+      }else {
+        //后台错误，一半指图片重复
+        message.error(file.response.message)
+        return false;
       }
-      setPreviewImage(pre)
+      console.log("file done",pre)
+      setPreviewImage(pre);
     }else if(file.status == 'error'){
-      setPreviewImage(null)
+      //上传异常
+      message.error("异常错误！")
+      return false;
     }
-
+    return true;
   };
-
+  //取消图片上传
   const onCancel = ()=>{
-
+    const tempList = fileList.filter((temp: any)=> temp.uid != previewImage?.ImageID)
+    setFileList(tempList);
+    setPreviewImage(null);
   }
-  const onSubmit = (values: any)=>{
-    console.log(values)
+  //确定上传图片
+  const onSubmit = async (values: any)=>{
+    console.log('form',values)
+    if(!values.title) values.title = '';
+    if(!values.desc) values.desc = '';
+    values.uid = initialState.data.uid;
+    values.hash = previewImage?.hash;
+    values.path = previewImage?.path;
+    const res = await upLoad_Finish(values)
+    if(res.data.result){
+
+      console.log("返回",res.data)
+      message.success(res.data.message)
+
+      onCancel()//取消预览，并从列表里删除
+
+    }else {
+      message.error(res.data.message)
+    }
   }
-
-
-
 
 
   return(
@@ -118,7 +146,7 @@ export default ()=>{
             showUploadList={{showRemoveIcon:false}}
             onPreview={handlePreviewImage}
             beforeUpload={onBeforeUpload}
-            onChange={handleChange}
+            onChange={onChange}
           >
             {fileList.length >= 8 ? null : (
               <div>
@@ -145,10 +173,12 @@ export default ()=>{
                 onFinish={onSubmit}
                 initialValues={
                   {
+                    title:'',
                     color: previewImage.color,
                     width: previewImage.width,
                     height: previewImage.height,
                     shape: previewImage.shape,
+                    desc:'',
                   }
                 }
               >
@@ -160,9 +190,17 @@ export default ()=>{
                 <Form.Item label="标签" name={'tags'}
                            rules={[{ required: true, message: '至少选择一个合适的标签'}]}
                            labelCol={{span: 4}}>
-                  <Select placeholder="选择合适标签">
-                    <Select.Option value="china">China</Select.Option>
-                    <Select.Option value="usa">U.S.A</Select.Option>
+                  <Select placeholder="选择合适标签"
+                          mode="multiple"
+                  >
+                    {
+                      previewImage.tags && previewImage.tags.map((tag)=>{
+                        return(
+                            <Select.Option key={tag.tag} value={tag.tag}>{tag.tag}</Select.Option>
+                          )
+
+                      })
+                    }
                   </Select>
                 </Form.Item>
                 <Row>
