@@ -23,6 +23,15 @@ export default function IndexPage(prpos: any) {
       <Sider collapsible
              collapsed={collapsed}
              onCollapse={onCollapse}
+             style={{
+               // width:'fix'
+               // overflow: 'auto',
+               // height: '100vh',
+               // position: 'fixed',
+               // left: 0,
+               // top: 0,
+               // bottom: 0,
+             }}
       >
         <div className="logo" />
         <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
@@ -71,7 +80,7 @@ export default function IndexPage(prpos: any) {
           </Row>
 
         </Header>
-        <Content style={{ margin: '0 16px'}}>
+        <Content style={{ margin: '0 16px',overflow:'hidden'}}>
           <Breadcrumb style={{ margin: '16px 0' }}/>
           {/*</Breadcrumb>*/}
           <div className="site-layout-background"

@@ -1,5 +1,5 @@
-import {Avatar, Card, Image} from "antd";
-import {
+import {Avatar, Card, Image, message} from "antd";
+import Icon,{
   BarsOutlined,
   DislikeOutlined,
   EditOutlined,
@@ -9,20 +9,57 @@ import {
 } from "@ant-design/icons";
 import {Meta} from "antd/es/list/Item";
 import {TypeImageInfo, TypeRes} from "@/types/types";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import InfoDrawer from "@/pages/Search/ImageCard/component/InfoDrawer";
+import HeartIcon from "@/pages/Layout/Icon/HeartIcon";
+import {NEW_LIKE_DISLIKE, NOT_LIKE_DISLIKE} from "@/services/RecordRequest";
+import {useModel} from "@@/plugin-model/useModel";
 interface Prop{
   imageInfo: TypeImageInfo;
 }
 
 export default (props: Prop)=>{
+  const { initialState,} = useModel("@@initialState");
+  let uid = '';
+  if(initialState && initialState.data)
+    uid = initialState.data.uid
+
   const {imageInfo} = props;
   const {image,user,tags,record} = props.imageInfo
-  const [isLike,setIsLike] = useState(false);
+  const [isLike,setIsLike] = useState<boolean>(false);
+  useEffect(()=>{
+    if(record && record.type == "like"){
+      setIsLike(true);
+    }
+  },[record])
 
-  const onLikeIt = ()=>{
-    console.log("onLike",isLike)
-    setIsLike(!isLike);
+
+  const onLikeIt = async ()=>{
+    const like = {
+      hid: image.hid,
+      uid: uid,
+      type: "like",//trail
+    }
+
+    if(isLike){//该变成不喜欢了
+      const res = await NOT_LIKE_DISLIKE(like)
+      if(res.data.result){
+        setIsLike(false);
+      }else {
+        message.error(res.data.message);
+      }
+
+
+    }else {//该变成喜欢了
+      // console.log("onLike:  false => like")
+      const res = await NEW_LIKE_DISLIKE(like)
+      if(res.data.result){
+        setIsLike(true);
+      }else {
+        message.error(res.data.message);
+      }
+    }
+
   }
 
 
@@ -37,6 +74,7 @@ export default (props: Prop)=>{
     }
   }
 
+
   return(
     <div>
       <Card
@@ -48,9 +86,17 @@ export default (props: Prop)=>{
         }}
         actions={[
           <InfoDrawer imageInfo={imageInfo} />,
-          // <HeartTwoTone twoToneColor="#eb2f96" /> style={{color: `${ isLike ? "red" : null}`}}
-          <HeartOutlined key="like" onClick={onLikeIt}  twoToneColor={`${ isLike ? "red" : null}`} />,
-
+          <span onClick={onLikeIt}>
+            {
+              isLike ? (
+                <HeartIcon
+                  // style={{color: `${ isLike ? "red" : 'black'}`,
+                  style={{color: "red", fontSize: '16px' }}/>
+              ) : (
+                <HeartOutlined />)
+            }
+          </span>
+          ,
           <EllipsisOutlined key="ellipsis" />,
           // <DislikeOutlined />,
         ]}

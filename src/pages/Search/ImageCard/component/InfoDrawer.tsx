@@ -2,12 +2,18 @@ import {Badge, Button, Col, Descriptions, Drawer, Row, Tag} from "antd";
 import {BarsOutlined, EyeOutlined, HeartTwoTone} from "@ant-design/icons";
 import {useEffect, useState} from "react";
 import {TypeImageInfo} from "@/types/types";
+import {ONE_HISTORY} from "@/services/RecordRequest";
+import {useModel} from "@@/plugin-model/useModel";
 
 interface Prop{
   imageInfo: TypeImageInfo;
 }
 
 export default (props: Prop)=>{
+  const { initialState,} = useModel("@@initialState");
+  let uid = '';
+  if(initialState && initialState.data)
+    uid = initialState.data.uid
 
   const {image,user,tags,record} = props.imageInfo
 
@@ -25,7 +31,12 @@ export default (props: Prop)=>{
   const isPhone = getNumByImage(image.width,image.height) == 6
   const isPC = getNumByImage(image.width,image.height) == 3
 
-  const showDrawer = () => {
+  const showDrawer = async () => {
+    const trail = {
+      hid: image.hid,
+      uid: uid,
+    }
+    ONE_HISTORY(trail)
     setVisible(true);
   };
   const onClose = () => {
@@ -37,7 +48,9 @@ export default (props: Prop)=>{
       <Descriptions.Item label="标题">{image.title}</Descriptions.Item>
       <Descriptions.Item label="描述">{image.description}</Descriptions.Item>
       <Descriptions.Item label="浏览量"><EyeOutlined />{image.trialnum}</Descriptions.Item>
-      <Descriptions.Item label="收藏量"><HeartTwoTone twoToneColor="red" />{image.likenum}</Descriptions.Item>
+      <Descriptions.Item label="收藏量">
+        <HeartTwoTone twoToneColor="red" />{image.likenum}
+      </Descriptions.Item>
       <Descriptions.Item label="标签们" >
         {tags.map((tag)=>{
           return (<Tag key={tag.tag} color="blue"> {tag.tag} </Tag>)

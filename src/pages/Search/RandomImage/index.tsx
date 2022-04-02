@@ -115,7 +115,10 @@ export default ()=>{
       setFourList(tempFour);setFourNum(four);
       setImageInfoList([])//为空
 
-      console.log(1234,tempOne,tempTwo,tempThree,tempFour)
+      console.log(1,tempOne)
+      console.log(2,tempTwo)
+      console.log(3,tempThree)
+      console.log(4,tempFour)
     }
   },[imageInfoList])
 
@@ -127,7 +130,6 @@ export default ()=>{
         }else {
           setImageInfoList([]);
         }
-        console.log(11,res);
       })
       .catch((err) => console.log(err))
       .finally(()=> {

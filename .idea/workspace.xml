@@ -20,22 +20,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="016e3d73-a4d1-4bf1-9259-ddf92494cd53" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/pages/Search/ImageCard/component/InfoDrawer.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Search/ImageCard/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Search/RandomImage/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Search/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/ImageRequest.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/RecordRequest.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/request.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.umirc.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.umirc.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/User/UpLoadImage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/User/UpLoadImage/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/TagsRequset.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/TagsRequset.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/upLoadRequest.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/UpLoadRequest.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/types.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/types.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Layout/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Layout/index.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Layout/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Layout/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Search/ImageCard/component/InfoDrawer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Search/ImageCard/component/InfoDrawer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Search/ImageCard/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Search/ImageCard/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Search/RandomImage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Search/RandomImage/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/ImageRequest.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/ImageRequest.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -59,7 +62,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="D:/StuProject/WebStorm/carecenter" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/units" />
     <property name="list.type.of.created.stylesheet" value="Less" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="E:\StuProject\WebStorm\react-Image\node_modules\prettier" />
@@ -68,17 +71,18 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\StuProject\WebStorm\react-Image\src\pages\User\UpLoad" />
-      <recent name="E:\StuProject\WebStorm\react-Image\src\pages\User\UserInfo" />
-      <recent name="E:\StuProject\WebStorm\react-Image\src\pages\Layout" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\StuProject\WebStorm\react-Image\src\utils" />
+      <recent name="E:\StuProject\WebStorm\react-Image\src" />
       <recent name="E:\StuProject\WebStorm\react-Image\src\pages\Search\RandomImage" />
       <recent name="E:\StuProject\WebStorm\react-Image\src\pages\Layout\Login" />
       <recent name="E:\StuProject\WebStorm\react-Image\src\pages" />
-      <recent name="E:\StuProject\WebStorm\react-Image\src\component" />
-      <recent name="E:\StuProject\WebStorm\react-Image\src\pages\component" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\StuProject\WebStorm\react-Image\src\units" />
+      <recent name="E:\StuProject\WebStorm\react-Image\src\pages\User\UpLoad" />
+      <recent name="E:\StuProject\WebStorm\react-Image\src\pages\User\UserInfo" />
+      <recent name="E:\StuProject\WebStorm\react-Image\src\pages\Layout" />
     </key>
   </component>
   <component name="RunManager">
@@ -119,6 +123,9 @@
       <workItem from="1648540815176" duration="2558000" />
       <workItem from="1648619698189" duration="14405000" />
       <workItem from="1648708993983" duration="21914000" />
+      <workItem from="1648742035852" duration="34000" />
+      <workItem from="1648802821949" duration="29000" />
+      <workItem from="1648875677717" duration="13804000" />
     </task>
     <task id="LOCAL-00001" summary="上传模块">
       <created>1648709103181</created>
@@ -127,7 +134,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648709103181</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="发现模块">
+      <created>1648742058434</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1648742058434</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,7 +161,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="上传模块" />
-    <option name="LAST_COMMIT_MESSAGE" value="上传模块" />
+    <MESSAGE value="发现模块" />
+    <option name="LAST_COMMIT_MESSAGE" value="发现模块" />
   </component>
   <component name="WindowStateProjectService">
     <state x="230" y="67" width="1089" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1647155112703">
@@ -166,30 +181,30 @@
       <screen x="0" y="0" width="1549" height="823" />
     </state>
     <state x="555" y="167" key="FileChooserDialogImpl/0.0.1549.823@0.0.1549.823" timestamp="1647678327080" />
-    <state width="1528" height="141" key="GridCell.Tab.0.bottom" timestamp="1648742001338">
+    <state width="1528" height="237" key="GridCell.Tab.0.bottom" timestamp="1648913501463">
       <screen x="0" y="0" width="1549" height="823" />
     </state>
-    <state width="1528" height="141" key="GridCell.Tab.0.bottom/0.0.1549.823@0.0.1549.823" timestamp="1648742001338" />
-    <state width="1528" height="141" key="GridCell.Tab.0.center" timestamp="1648742001337">
+    <state width="1528" height="237" key="GridCell.Tab.0.bottom/0.0.1549.823@0.0.1549.823" timestamp="1648913501463" />
+    <state width="1528" height="237" key="GridCell.Tab.0.center" timestamp="1648913501462">
       <screen x="0" y="0" width="1549" height="823" />
     </state>
-    <state width="1528" height="141" key="GridCell.Tab.0.center/0.0.1549.823@0.0.1549.823" timestamp="1648742001337" />
-    <state width="1528" height="141" key="GridCell.Tab.0.left" timestamp="1648742001336">
+    <state width="1528" height="237" key="GridCell.Tab.0.center/0.0.1549.823@0.0.1549.823" timestamp="1648913501462" />
+    <state width="1528" height="237" key="GridCell.Tab.0.left" timestamp="1648913501462">
       <screen x="0" y="0" width="1549" height="823" />
     </state>
-    <state width="1528" height="141" key="GridCell.Tab.0.left/0.0.1549.823@0.0.1549.823" timestamp="1648742001336" />
-    <state width="1528" height="141" key="GridCell.Tab.0.right" timestamp="1648742001337">
+    <state width="1528" height="237" key="GridCell.Tab.0.left/0.0.1549.823@0.0.1549.823" timestamp="1648913501462" />
+    <state width="1528" height="237" key="GridCell.Tab.0.right" timestamp="1648913501463">
       <screen x="0" y="0" width="1549" height="823" />
     </state>
-    <state width="1528" height="141" key="GridCell.Tab.0.right/0.0.1549.823@0.0.1549.823" timestamp="1648742001337" />
+    <state width="1528" height="237" key="GridCell.Tab.0.right/0.0.1549.823@0.0.1549.823" timestamp="1648913501463" />
     <state x="284" y="56" key="SettingsEditor" timestamp="1648541065954">
       <screen x="0" y="0" width="1549" height="823" />
     </state>
     <state x="284" y="56" key="SettingsEditor/0.0.1549.823@0.0.1549.823" timestamp="1648541065954" />
-    <state x="367" y="145" key="Vcs.Push.Dialog.v2" timestamp="1648711431017">
+    <state x="367" y="145" key="Vcs.Push.Dialog.v2" timestamp="1648742062301">
       <screen x="0" y="0" width="1549" height="823" />
     </state>
-    <state x="367" y="145" key="Vcs.Push.Dialog.v2/0.0.1549.823@0.0.1549.823" timestamp="1648711431017" />
+    <state x="367" y="145" key="Vcs.Push.Dialog.v2/0.0.1549.823@0.0.1549.823" timestamp="1648742062301" />
     <state x="432" y="187" key="run.anything.popup" timestamp="1647200362176">
       <screen x="0" y="0" width="1549" height="823" />
     </state>
