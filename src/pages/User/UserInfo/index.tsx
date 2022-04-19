@@ -1,6 +1,6 @@
 import {Button, Col, Descriptions, Divider, Empty, Form, Input, Row} from "antd";
 import {useModel} from "@@/plugin-model/useModel";
-import NotLogin from "@/component/Empty/NotLogin";
+import NotLogin from "@/pages/Layout/Empty/NotLogin";
 import UserImage from "@/pages/User/UserInfo/compoment/UserImage";
 import UserTags from "@/pages/User/UserInfo/compoment/UserTags";
 import {useState} from "react";

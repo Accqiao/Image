@@ -1,5 +1,5 @@
 import {Badge, Button, Col, Descriptions, Drawer, Row, Tag} from "antd";
-import {BarsOutlined, EyeOutlined, HeartTwoTone} from "@ant-design/icons";
+import {BarsOutlined, EyeOutlined, FireOutlined, HeartOutlined, HeartTwoTone} from "@ant-design/icons";
 import {useEffect, useState} from "react";
 import {TypeImageInfo} from "@/types/types";
 import {ONE_HISTORY} from "@/services/RecordRequest";
@@ -15,7 +15,8 @@ export default (props: Prop)=>{
   if(initialState && initialState.data)
     uid = initialState.data.uid
 
-  const {image,user,tags,record} = props.imageInfo
+  const {image,user,tags,record} = props.imageInfo;
+
 
   const [visible, setVisible] = useState(false);
 
@@ -32,11 +33,8 @@ export default (props: Prop)=>{
   const isPC = getNumByImage(image.width,image.height) == 3
 
   const showDrawer = async () => {
-    const trail = {
-      hid: image.hid,
-      uid: uid,
-    }
-    ONE_HISTORY(trail)
+    console.log(image);
+    ONE_HISTORY({hid: image.hid, uid: uid});
     setVisible(true);
   };
   const onClose = () => {
@@ -47,15 +45,53 @@ export default (props: Prop)=>{
     <Descriptions title={" "} bordered column={1}>
       <Descriptions.Item label="标题">{image.title}</Descriptions.Item>
       <Descriptions.Item label="描述">{image.description}</Descriptions.Item>
-      <Descriptions.Item label="浏览量"><EyeOutlined />{image.trialnum}</Descriptions.Item>
-      <Descriptions.Item label="收藏量">
-        <HeartTwoTone twoToneColor="red" />{image.likenum}
+      <Descriptions.Item label="浏览量">
+        <EyeOutlined style={{color:'blue',marginRight:10}}/>{image.trailnum}
       </Descriptions.Item>
+      <Descriptions.Item label="收藏量">
+        <HeartOutlined style={{color:'red',marginRight:10}}/>{image.likenum}
+      </Descriptions.Item>
+      <Descriptions.Item label="流行度">
+        <FireOutlined  style={{color:'red',marginRight:10}}/>{image.score}
+      </Descriptions.Item>
+
       <Descriptions.Item label="标签们" >
         {tags.map((tag)=>{
           return (<Tag key={tag.tag} color="blue"> {tag.tag} </Tag>)
         })}
       </Descriptions.Item>
+      <Descriptions.Item label="上传用户" >
+        {user.name}
+      </Descriptions.Item>
+
+
+    </Descriptions>
+  )
+
+  const DescriptionInfoToPC = ()=> (
+    <Descriptions title={" "} bordered >
+      <Descriptions.Item label="标题" span={3}>{image.title}</Descriptions.Item>
+      <Descriptions.Item label="描述" span={3}>{image.description}</Descriptions.Item>
+      <Descriptions.Item label="浏览">
+        <EyeOutlined style={{color:'blue',marginRight:10}}/>{image.trailnum}
+      </Descriptions.Item>
+      <Descriptions.Item >
+        <HeartOutlined style={{color:'red',marginRight:10}}/>{image.likenum}
+      </Descriptions.Item>
+      <Descriptions.Item >
+        <FireOutlined  style={{color:'red',marginRight:10}}/>{image.score}
+      </Descriptions.Item>
+
+      <Descriptions.Item label="标签们" span={3}>
+        {tags.map((tag)=>{
+          return (<Tag key={tag.tag} color="blue"> {tag.tag} </Tag>)
+        })}
+      </Descriptions.Item>
+      <Descriptions.Item label="上传用户" span={3}>
+        {user.name}
+      </Descriptions.Item>
+
+
     </Descriptions>
   )
 
@@ -99,7 +135,7 @@ export default (props: Prop)=>{
                 />
               </div>
               <div>
-                <DescriptionInfo />
+                <DescriptionInfoToPC />
               </div>
             </div>
 

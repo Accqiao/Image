@@ -1,8 +1,8 @@
 import {Col, Row, Skeleton} from "antd";
 import {useEffect, useState} from "react";
-import {getImageByRandom} from "@/services/ImageRequest";
-import {TypeImageInfo, TypeRes} from "@/types/types";
-import ImageCard from "../ImageCard"
+import {GET_ImageByTrail} from "@/services/ImageRequest";
+import {TypeImageInfo} from "@/types/types";
+import ImageCard from "@/pages/ShowImage/ImageCard"
 import {useModel} from "@@/plugin-model/useModel";
 
 export default ()=>{
@@ -123,7 +123,13 @@ export default ()=>{
   },[imageInfoList])
 
   useEffect(()=>{
-    getImageByRandom(uid)
+
+    const post = {
+      uid: uid,
+      begin: 0,
+      limit: 20,
+    }
+    GET_ImageByTrail(post)
       .then((res) => {
         if(res.data.result){
           setImageInfoList(res.data.data);

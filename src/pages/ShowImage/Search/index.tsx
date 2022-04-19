@@ -1,9 +1,5 @@
-import {Col, Row, Skeleton, Tabs} from "antd";
-import {useEffect, useState} from "react";
-import {getImageByRandom} from "@/services/ImageRequest";
-import {TypeImageInfo, TypeRes} from "@/types/types";
+import {Tabs} from "antd";
 import RandomImage from "./RandomImage"
-import {useModel} from "@@/plugin-model/useModel";
 
 export default ()=>{
 

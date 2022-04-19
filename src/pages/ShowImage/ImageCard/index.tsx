@@ -10,7 +10,7 @@ import Icon,{
 import {Meta} from "antd/es/list/Item";
 import {TypeImageInfo, TypeRes} from "@/types/types";
 import {useEffect, useState} from "react";
-import InfoDrawer from "@/pages/Search/ImageCard/component/InfoDrawer";
+import InfoDrawer from "@/pages/ShowImage/ImageCard/InfoDrawer";
 import HeartIcon from "@/pages/Layout/Icon/HeartIcon";
 import {NEW_LIKE_DISLIKE, NOT_LIKE_DISLIKE} from "@/services/RecordRequest";
 import {useModel} from "@@/plugin-model/useModel";
@@ -27,6 +27,8 @@ export default (props: Prop)=>{
   const {imageInfo} = props;
   const {image,user,tags,record} = props.imageInfo
   const [isLike,setIsLike] = useState<boolean>(false);
+  const [imgInfo,setImgInfo] = useState(image);
+  const [recordInfo,setRecoedInfo] = useState(record);
   useEffect(()=>{
     if(record && record.type == "like"){
       setIsLike(true);
@@ -42,8 +44,11 @@ export default (props: Prop)=>{
     }
 
     if(isLike){//该变成不喜欢了
-      const res = await NOT_LIKE_DISLIKE(like)
+      const res = await NOT_LIKE_DISLIKE(like);
+      console.log('res',res)
       if(res.data.result){
+        setImgInfo(res.data.data.image);
+        setRecoedInfo(res.data.data.record);
         setIsLike(false);
       }else {
         message.error(res.data.message);
@@ -53,7 +58,10 @@ export default (props: Prop)=>{
     }else {//该变成喜欢了
       // console.log("onLike:  false => like")
       const res = await NEW_LIKE_DISLIKE(like)
+      console.log('res',res)
       if(res.data.result){
+        setImgInfo(res.data.data.image);
+        setRecoedInfo(res.data.data.record);
         setIsLike(true);
       }else {
         message.error(res.data.message);
@@ -85,7 +93,7 @@ export default (props: Prop)=>{
           // overflow: 'hidden'
         }}
         actions={[
-          <InfoDrawer imageInfo={imageInfo} />,
+          <InfoDrawer imageInfo={{image:imgInfo,user,tags,record}} />,
           <span onClick={onLikeIt}>
             {
               isLike ? (

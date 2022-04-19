@@ -1,13 +1,26 @@
-import {Timeline} from "antd";
+import {Col, Row, Skeleton, Tabs} from "antd";
+import TrailHistory from './TrailHistory/index'
+import LikeHistory from './LikeHistory'
+import UploadHistory from './UpLoadHistory'
+export default ()=>{
 
-export default () => {
+  function callback(key: string) {
+    console.log(key);
+  }
 
   return(
-    <Timeline mode={"left"}>
-      <Timeline.Item label="2015-09-01">Create a services</Timeline.Item>
-      <Timeline.Item label="2015-09-01 09:12:11">Solve initial network problems</Timeline.Item>
-      <Timeline.Item>Technical testing</Timeline.Item>
-      <Timeline.Item label="2015-09-01 09:12:11">Network problems being solved</Timeline.Item>
-    </Timeline>
+    <div>
+      <Tabs defaultActiveKey="1" onChange={callback}>
+        <Tabs.TabPane tab="浏览记录" key="1">
+          <TrailHistory />
+        </Tabs.TabPane>
+        {/*<Tabs.TabPane tab="收藏记录" key="2">*/}
+        {/*  <LikeHistory />*/}
+        {/*</Tabs.TabPane>*/}
+        {/*<Tabs.TabPane tab="上传记录" key="3">*/}
+        {/*  <UploadHistory />*/}
+        {/*</Tabs.TabPane>*/}
+      </Tabs>
+    </div>
   )
 }

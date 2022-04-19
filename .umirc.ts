@@ -12,15 +12,18 @@ export default defineConfig({
         {
           path: '/home',
           name: '首页',
+          component: '@/pages/Home/index'
         },
         {
           path: '/rank',
           name: '排行榜',
+          component: '@/pages/ShowImage/RankList/index'
+
         },
         {
           path: '/search',
           name: '发现',
-          component: '@/pages/Search/index'
+          component: '@/pages/ShowImage/Search/index'
         },
         {
           path: '/look',
@@ -34,8 +37,8 @@ export default defineConfig({
             {
               path: '/look/collect',
               // icon:'StarOutlined',//v5取消了二级菜单图标，应为要加载3M的图标库
-              name: '喜欢=》点赞/收藏',
-              // component: '@/pages/Dashboard/Analysis'
+              name: '喜欢',
+              component: '@/pages/Concern/Like'
             },
           ],
         },
@@ -51,7 +54,7 @@ export default defineConfig({
             },
             {
               path: 'record',
-              name: '动态/足迹/消息',
+              name: '足迹',
               component: '@/pages/User/Record/index'
             },
             {
