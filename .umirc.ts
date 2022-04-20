@@ -7,38 +7,41 @@ export default defineConfig({
   routes: [
     {
       path: '/',
-      component:'@/pages/Layout/index',
+      component: '@/pages/Layout/index',
       routes: [
+        {
+          path: '/',
+          redirect: '/home',
+        },
         {
           path: '/home',
           name: '首页',
-          component: '@/pages/Home/index'
+          component: '@/pages/Home/index',
         },
         {
           path: '/rank',
           name: '排行榜',
-          component: '@/pages/ShowImage/RankList/index'
-
+          component: '@/pages/ShowImage/RankList/index',
         },
         {
           path: '/search',
           name: '发现',
-          component: '@/pages/ShowImage/Search/index'
+          component: '@/pages/ShowImage/Search/index',
         },
         {
-          path: '/look',
+          path: 'concern',
           name: '关注',
           routes: [
             {
-              path: '/look/users',
+              path: 'user',
               name: '订阅',
-              // component: '@/pages/Dashboard/Analysis'
+              component: '@/pages/Concern/user',
             },
             {
-              path: '/look/collect',
+              path: 'like',
               // icon:'StarOutlined',//v5取消了二级菜单图标，应为要加载3M的图标库
               name: '喜欢',
-              component: '@/pages/Concern/Like'
+              component: '@/pages/Concern/Like',
             },
           ],
         },
@@ -50,28 +53,25 @@ export default defineConfig({
             {
               path: 'upload',
               name: '上传/发布',
-              component: '@/pages/User/UpLoadImage/index'
+              component: '@/pages/User/UpLoadImage/index',
             },
             {
               path: 'record',
               name: '足迹',
-              component: '@/pages/User/Record/index'
+              component: '@/pages/User/Record/index',
             },
             {
               path: 'info',
               name: '个人信息',
-              component: '@/pages/User/UserInfo/index'
+              component: '@/pages/User/UserInfo/index',
             },
           ],
         },
-        // { component: '@/pages/404' },
       ],
     },
   ],
 
-
-
   fastRefresh: {},
-  mfsu : {},
-  webpack5:{},
+  mfsu: {},
+  webpack5: {},
 });

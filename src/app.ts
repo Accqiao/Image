@@ -1,28 +1,25 @@
+import { GET_UserInfo } from '@/services/UserRequest';
 
-
-
-const UserInfo = ()=>{
-  const userLocalStorage = localStorage.getItem("Ring");
-  if(userLocalStorage && userLocalStorage.length > 0) {
-
-    //如果localStorage存在，
-    return JSON.parse(userLocalStorage)
-  }else {
-    //如果localStorage不存在，则就查看是否记住账号
-    const userSessionStorage = sessionStorage.getItem("Ring");
-    if(userSessionStorage && userSessionStorage.length > 0) {
-      //如果sessionStorage存在，
-      return JSON.parse(userSessionStorage)
-    }else {
-      return {
-        result: false,
-      }
+const UserInfo = async () => {
+  const userLocalStorage = localStorage.getItem('Ring');
+  const userSessionStorage = sessionStorage.getItem('Ring');
+  const userId = userLocalStorage || userSessionStorage;
+  if (userId) {
+    const res = await GET_UserInfo(userId);
+    console.log('【InitialState】获取初始化状态：', res.data);
+    if (res.data && res.data.result) {
+      // data: {uid: '10086', name:...}
+      // message: null
+      // result: true
+      // tanken: null
+      return res.data;
+    } else {
+      return false;
     }
   }
-}
+};
 
 export async function getInitialState() {
   const data = await UserInfo();
-  console.log("获取LocalStorage",data)
   return data;
 }

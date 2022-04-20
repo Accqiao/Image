@@ -20,37 +20,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="016e3d73-a4d1-4bf1-9259-ddf92494cd53" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/pages/Concern/Like/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/ShowImage/ImageCard/Operation.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/ShowImage/RankList/RankByScore/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/ShowImage/RankList/RankByTrail/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/ShowImage/RankList/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/User/Record/InfoDrawer/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/User/Record/LikeHistory/ImageLittleCard.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/User/Record/LikeHistory/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/User/Record/TrailHistory/ImageLittleCard.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/User/Record/TrailHistory/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/User/Record/UpLoadHistory/ImageLittleCard.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/User/Record/UpLoadHistory/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/User/UpLoadImage/UpLoadImage.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/User/UpLoadImage/UploadHistory.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/HistoryRequest.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/ImageLikeRequest.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Concern/User/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Home/ImageCarousel/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Home/ImageRecommend/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/ShowImage/Search/CreateTimeImage/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.umirc.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.umirc.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/Empty/NotLogin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Layout/Empty/NotLogin.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/MyUpLoad/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/component/MyUpLoad/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Concern/Like/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Concern/Like/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Home/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Layout/Login/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Layout/Login/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Layout/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Layout/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Search/ImageCard/component/InfoDrawer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ShowImage/ImageCard/InfoDrawer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Search/ImageCard/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ShowImage/ImageCard/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Search/RandomImage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ShowImage/Search/RandomImage/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Search/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ShowImage/Search/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/ShowImage/RankList/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ShowImage/RankList/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/ShowImage/Search/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ShowImage/Search/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/User/Record/InfoDrawer/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/User/Record/LikeHistory/ImageLittleCard.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/User/Record/LikeHistory/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/User/Record/TrailHistory/ImageLittleCard.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/User/Record/TrailHistory/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/User/Record/TrailHistory/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/User/Record/UpLoadHistory/ImageLittleCard.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/User/Record/UpLoadHistory/index.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/User/Record/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/User/Record/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/User/UpLoadImage/UpLoadImage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/User/UpLoadImage/UpLoadImage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/User/UpLoadImage/UploadHistory.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/User/UpLoadImage/UploadHistory.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/User/UpLoadImage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/User/UpLoadImage/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/User/UserInfo/compoment/UserImage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/User/UserInfo/compoment/UserImage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/User/UserInfo/compoment/UserInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/User/UserInfo/compoment/UserInput.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/User/UserInfo/compoment/UserPassword.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/User/UserInfo/compoment/UserPassword.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/User/UserInfo/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/User/UserInfo/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/HistoryRequest.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/HistoryRequest.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/ImageRequest.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/ImageRequest.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/types.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/types.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/Login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/RecordRequest.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/RecordRequest.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/UserRequest.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/UserRequest.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/request.ts" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +88,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/pages/User/UpLoadImage" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/pages/ShowImage/Search/CreateTimeImage" />
     <property name="list.type.of.created.stylesheet" value="Less" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="E:\StuProject\WebStorm\react-Image\node_modules\prettier" />
@@ -94,18 +98,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\StuProject\WebStorm\react-Image\src\pages\ShowImage\Search\CreateTimeImage" />
+      <recent name="E:\StuProject\WebStorm\react-Image\src\pages\Home\ImageRecommend" />
+      <recent name="E:\StuProject\WebStorm\react-Image\src\pages\Concern\User" />
+      <recent name="E:\StuProject\WebStorm\react-Image\src\pages\Concern\Concern" />
       <recent name="E:\StuProject\WebStorm\react-Image\src\pages\User\UpLoadImage" />
-      <recent name="E:\StuProject\WebStorm\react-Image\src\pages\User\Record\UpLoadHistory" />
-      <recent name="E:\StuProject\WebStorm\react-Image\src\pages\User\Record\LikeHistory" />
-      <recent name="E:\StuProject\WebStorm\react-Image\src\pages\User\Record\InfoDrawer" />
-      <recent name="E:\StuProject\WebStorm\react-Image\src\pages\User\Record\TrailHistory" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\StuProject\WebStorm\react-Image\src\pages\Home\Carousel" />
       <recent name="E:\StuProject\WebStorm\react-Image\src\pages\Concern\Like" />
       <recent name="E:\StuProject\WebStorm\react-Image\src\pages\Layout" />
       <recent name="E:\StuProject\WebStorm\react-Image\src\pages\ShowImage\RankList\RankByScore" />
       <recent name="E:\StuProject\WebStorm\react-Image\src\pages\ShowImage\RankList\RankByTrail" />
-      <recent name="E:\StuProject\WebStorm\react-Image\src\pages\ShowImage\ImageCard" />
     </key>
   </component>
   <component name="RunManager">
@@ -154,6 +158,8 @@
       <workItem from="1649293591529" duration="13147000" />
       <workItem from="1650207915041" duration="1186000" />
       <workItem from="1650243778255" duration="17128000" />
+      <workItem from="1650330254865" duration="8644000" />
+      <workItem from="1650416545527" duration="21726000" />
     </task>
     <task id="LOCAL-00001" summary="上传模块">
       <created>1648709103181</created>
@@ -176,7 +182,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648915090147</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="查看图片">
+      <created>1650333250051</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1650333250051</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -198,7 +211,8 @@
     <MESSAGE value="上传模块" />
     <MESSAGE value="发现模块" />
     <MESSAGE value="订阅小红心" />
-    <option name="LAST_COMMIT_MESSAGE" value="订阅小红心" />
+    <MESSAGE value="查看图片" />
+    <option name="LAST_COMMIT_MESSAGE" value="查看图片" />
   </component>
   <component name="WindowStateProjectService">
     <state x="230" y="67" width="1089" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1647155112703">
@@ -217,30 +231,30 @@
       <screen x="0" y="0" width="1549" height="823" />
     </state>
     <state x="555" y="167" key="FileChooserDialogImpl/0.0.1549.823@0.0.1549.823" timestamp="1647678327080" />
-    <state width="1528" height="114" key="GridCell.Tab.0.bottom" timestamp="1650291054450">
+    <state width="1528" height="191" key="GridCell.Tab.0.bottom" timestamp="1650466711799">
       <screen x="0" y="0" width="1549" height="823" />
     </state>
-    <state width="1528" height="114" key="GridCell.Tab.0.bottom/0.0.1549.823@0.0.1549.823" timestamp="1650291054450" />
-    <state width="1528" height="114" key="GridCell.Tab.0.center" timestamp="1650291054450">
+    <state width="1528" height="191" key="GridCell.Tab.0.bottom/0.0.1549.823@0.0.1549.823" timestamp="1650466711799" />
+    <state width="1528" height="191" key="GridCell.Tab.0.center" timestamp="1650466711798">
       <screen x="0" y="0" width="1549" height="823" />
     </state>
-    <state width="1528" height="114" key="GridCell.Tab.0.center/0.0.1549.823@0.0.1549.823" timestamp="1650291054450" />
-    <state width="1528" height="114" key="GridCell.Tab.0.left" timestamp="1650291054450">
+    <state width="1528" height="191" key="GridCell.Tab.0.center/0.0.1549.823@0.0.1549.823" timestamp="1650466711798" />
+    <state width="1528" height="191" key="GridCell.Tab.0.left" timestamp="1650466711798">
       <screen x="0" y="0" width="1549" height="823" />
     </state>
-    <state width="1528" height="114" key="GridCell.Tab.0.left/0.0.1549.823@0.0.1549.823" timestamp="1650291054450" />
-    <state width="1528" height="114" key="GridCell.Tab.0.right" timestamp="1650291054450">
+    <state width="1528" height="191" key="GridCell.Tab.0.left/0.0.1549.823@0.0.1549.823" timestamp="1650466711798" />
+    <state width="1528" height="191" key="GridCell.Tab.0.right" timestamp="1650466711798">
       <screen x="0" y="0" width="1549" height="823" />
     </state>
-    <state width="1528" height="114" key="GridCell.Tab.0.right/0.0.1549.823@0.0.1549.823" timestamp="1650291054450" />
+    <state width="1528" height="191" key="GridCell.Tab.0.right/0.0.1549.823@0.0.1549.823" timestamp="1650466711798" />
     <state x="284" y="56" key="SettingsEditor" timestamp="1648541065954">
       <screen x="0" y="0" width="1549" height="823" />
     </state>
     <state x="284" y="56" key="SettingsEditor/0.0.1549.823@0.0.1549.823" timestamp="1648541065954" />
-    <state x="367" y="145" key="Vcs.Push.Dialog.v2" timestamp="1648915093976">
+    <state x="367" y="145" key="Vcs.Push.Dialog.v2" timestamp="1650333301545">
       <screen x="0" y="0" width="1549" height="823" />
     </state>
-    <state x="367" y="145" key="Vcs.Push.Dialog.v2/0.0.1549.823@0.0.1549.823" timestamp="1648915093976" />
+    <state x="367" y="145" key="Vcs.Push.Dialog.v2/0.0.1549.823@0.0.1549.823" timestamp="1650333301545" />
     <state x="432" y="187" key="run.anything.popup" timestamp="1649300877974">
       <screen x="0" y="0" width="1549" height="823" />
     </state>

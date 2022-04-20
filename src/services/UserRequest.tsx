@@ -1,9 +1,15 @@
-import axios from "axios";
+import axios from 'axios';
 
-
-export const updateUserInfo = async (values: any )=>{
-
+export const UPDATE_UserInfo = async (values: any) => {
   return axios.post('http://localhost:8088/user/update', {
-    ...values
-  })
+    ...values,
+  });
+};
+
+export const GET_UserInfo = async (uid: string) => {
+  return axios.get('http://localhost:8088/user/getUserInfo', {
+    params: {
+      uid: uid,
+    },
+  });
 };

@@ -23,6 +23,7 @@
     "@ant-design/icons": "^4.7.0",
     "@ant-design/pro-layout": "^6.5.0",
     "antd": "^4.19.1",
+    "antd-img-crop": "^4.2.0",
     "axios": "^0.26.1",
     "mockjs": "^1.1.0",
     "rc-tween-one": "^3.0.3",
