@@ -1,6 +1,7 @@
 import { Tabs } from 'antd';
 import RankByScore from './RankByScore/index';
 import RankByTrail from './RankByTrail/index';
+import RankByLike from './RankByLike/index';
 
 export default () => {
   function callback(key: string) {
@@ -17,7 +18,7 @@ export default () => {
           <RankByTrail />
         </Tabs.TabPane>
         <Tabs.TabPane tab="收藏量排名" key="3">
-          Content of Tab Pane 3
+          <RankByLike />
         </Tabs.TabPane>
       </Tabs>
     </div>

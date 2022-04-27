@@ -25,8 +25,10 @@ import React, { useState } from 'react';
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 import UserLogin from '@/pages/Layout/Login';
+import { useModel } from '@@/plugin-model/useModel';
 
 export default function IndexPage(prpos: any) {
+  const { initialState } = useModel('@@initialState');
   const [collapsed, setCollapsed] = useState(false);
   const onCollapse = () => {
     setCollapsed(!collapsed);
@@ -81,6 +83,16 @@ export default function IndexPage(prpos: any) {
               <Link to="/user/info">个人信息/偏好密码</Link>
             </Menu.Item>
           </SubMenu>
+          {initialState && initialState.data.role === 'admin' ? (
+            <SubMenu key="manage" icon={<HomeOutlined />} title="管理中心">
+              <Menu.Item key="manage-image" icon={<PictureOutlined />}>
+                <Link to="/manage/image">图片管理</Link>
+              </Menu.Item>
+              <Menu.Item key="manage-user" icon={<SoundOutlined />}>
+                <Link to="/manage/user">用户管理</Link>
+              </Menu.Item>
+            </SubMenu>
+          ) : null}
         </Menu>
       </Sider>
       <Layout className="site-layout">

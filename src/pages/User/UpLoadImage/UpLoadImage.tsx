@@ -13,9 +13,7 @@ import {
 import { useEffect, useState } from 'react';
 import { CloudUploadOutlined, PlusOutlined } from '@ant-design/icons';
 import { RcFile } from 'antd/es/upload';
-import UserInput from '@/pages/User/UserInfo/compoment/UserInput';
 import { TypeTag } from '@/types/types';
-import { toLogin } from '@/services/Login';
 import { upLoad_Finish } from '@/services/UpLoadRequest';
 import { useModel } from '@@/plugin-model/useModel';
 

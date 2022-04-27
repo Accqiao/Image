@@ -45,7 +45,6 @@ export default defineConfig({
             },
           ],
         },
-
         {
           path: 'user',
           name: '个人中心',
@@ -64,6 +63,22 @@ export default defineConfig({
               path: 'info',
               name: '个人信息',
               component: '@/pages/User/UserInfo/index',
+            },
+          ],
+        },
+        {
+          path: 'manage',
+          name: '管理中心',
+          routes: [
+            {
+              path: 'image',
+              name: '图片管理',
+              component: '@/pages/Manage/Images/index',
+            },
+            {
+              path: 'user',
+              name: '用户管理',
+              component: '@/pages/Manage/Users/index',
             },
           ],
         },

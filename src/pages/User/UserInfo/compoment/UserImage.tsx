@@ -1,5 +1,6 @@
-import { Image, message, Upload } from 'antd';
+import { Avatar, Image, message, Upload } from 'antd';
 import ImgCrop from 'antd-img-crop';
+import '../index.less';
 import React, { useState } from 'react';
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import { useModel } from '@@/plugin-model/useModel';
@@ -48,11 +49,11 @@ export default () => {
     </div>
   );
   return (
-    <div style={{ width: '100%', overflow: 'hidden' }}>
+    <div style={{ width: '100%', overflow: 'hidden', cursor: 'pointer' }}>
       <ImgCrop rotate>
         <Upload
           name="avatar"
-          listType="picture"
+          // listType="text"
           className="avatar-uploader"
           showUploadList={false}
           data={{ uid: initialState.data.uid }}
@@ -62,12 +63,17 @@ export default () => {
           maxCount={1}
         >
           {imageUrl ? (
-            <img
+            <Avatar
+              style={{ width: 'fit-content' }}
+              size={128}
               src={'http://localhost:8088/image/' + imageUrl}
-              alt="avatar"
-              style={{ width: '100%' }}
             />
           ) : (
+            // <img
+            //   src={'http://localhost:8088/image/' + imageUrl}
+            //   alt="avatar"
+            //   style={{ width: '100%' }}
+            // />
             uploadButton
           )}
         </Upload>

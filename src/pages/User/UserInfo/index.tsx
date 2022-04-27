@@ -16,6 +16,7 @@ import { useState } from 'react';
 import UserPassword from '@/pages/User/UserInfo/compoment/UserPassword';
 import styles from './index.less';
 import UserInput from '@/pages/User/UserInfo/compoment/UserInput';
+import UserInfo from '@/pages/User/UserInfo/compoment/UserInfo';
 
 export default () => {
   const { initialState } = useModel('@@initialState');
@@ -30,14 +31,21 @@ export default () => {
     <>
       {initialState && initialState.result ? (
         <Row style={{ height: '100%' }}>
-          <Col span={5}>
-            <UserImage />
-            <UserTags />
-          </Col>
-          <Col span={1} style={{ textAlign: 'center' }}>
-            <Divider style={{ height: '100%' }} type="vertical" />
-          </Col>
-          <Col span={18}>
+          <Col span={7}></Col>
+
+          {/*<Col span={1} style={{ textAlign: 'center' }}>*/}
+          {/*  <Divider style={{ height: '100%' }} type="vertical" />*/}
+          {/*</Col>*/}
+          <Col span={10}>
+            <Row>
+              <Col span={8}>
+                <UserImage />
+              </Col>
+              <Col span={16}>
+                <UserTags />
+              </Col>
+            </Row>
+
             <Form
               className={styles.fromBottom}
               form={form}
@@ -54,38 +62,35 @@ export default () => {
                   width: '35%',
                 }}
                 column={{ xxl: 2, xl: 2, lg: 1, md: 1, sm: 1, xs: 1 }}
-                extra={<UserPassword />}
+                extra={
+                  <div>
+                    <UserInfo />
+                    <UserPassword />
+                  </div>
+                }
               >
                 <Descriptions.Item label="昵称">
-                  <UserInput thekey={'name'} value={initialState.data.name} />
+                  {initialState.data.name}
                 </Descriptions.Item>
                 <Descriptions.Item label="账号">
-                  <UserInput thekey={'uid'} value={initialState.data.uid} />
+                  {initialState.data.uid}
                 </Descriptions.Item>
                 <Descriptions.Item label="角色类型">
-                  <UserInput
-                    thekey={'role'}
-                    value={initialState.data.role + '|role'}
-                  />
+                  {initialState.data.role == 'admin' ? '管理员' : '用户'}
                 </Descriptions.Item>
                 <Descriptions.Item label="性别">
-                  <UserInput
-                    thekey={'gender'}
-                    value={initialState.data.gender}
-                  />
+                  {initialState.data.gender}
                 </Descriptions.Item>
-                <Descriptions.Item label="邮箱">
-                  <UserInput thekey={'email'} value={initialState.data.email} />
+                <Descriptions.Item label="邮箱" span={2}>
+                  {initialState.data.email}
                 </Descriptions.Item>
-                <Descriptions.Item label="简介">
-                  <UserInput
-                    thekey={'introduction'}
-                    value={initialState.data.introduction}
-                  />
+                <Descriptions.Item label="简介" span={2}>
+                  {initialState.data.introduction}
                 </Descriptions.Item>
               </Descriptions>
             </Form>
           </Col>
+          <Col span={7}></Col>
         </Row>
       ) : (
         <NotLogin />

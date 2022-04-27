@@ -13,3 +13,13 @@ export const GET_UserInfo = async (uid: string) => {
     },
   });
 };
+
+export const GET_UserByPage = async (params: { page: number; row: number }) => {
+  return axios.get('http://localhost:8088/user/page', {
+    params,
+    // params: {
+    //   page: page,
+    //   row:row,
+    // },
+  });
+};

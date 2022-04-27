@@ -15,9 +15,9 @@ export default () => {
         <Tabs.TabPane tab="推荐" key="2">
           <ImageRecommend />
         </Tabs.TabPane>
-        <Tabs.TabPane tab="每日一图" key="3">
-          Content of Tab Pane 3
-        </Tabs.TabPane>
+        {/*<Tabs.TabPane tab="每日一图" key="3">*/}
+        {/*  Content of Tab Pane 3*/}
+        {/*</Tabs.TabPane>*/}
       </Tabs>
     </div>
   );
