@@ -1,34 +1,32 @@
-import { Affix, Button, Col, Row, Skeleton } from 'antd';
-import { useEffect, useState } from 'react';
-import { GET_ImageByCreateTime } from '@/services/ImageRequest';
+import { Col, Row, Skeleton } from 'antd';
+import { useEffect, useRef, useState } from 'react';
+import {
+  GET_ImageByCreateTime,
+  GET_ImageByRandom,
+  GET_ImageByTags,
+} from '@/services/ImageRequest';
 import { TypeImageInfo, TypeRes } from '@/types/types';
-import ImageCard from '@/pages/ShowImage/ImageCard';
+import ImageCard from '@/pages/ShowImage/ImageCard/index';
 import { useModel } from '@@/plugin-model/useModel';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
-export default () => {
+interface Prop {
+  type: string;
+}
+export default (props: Prop) => {
+  const { type } = props;
+  const divOne = useRef();
+  const divTwo = useRef();
+  const divThree = useRef();
+  const divFour = useRef();
   const { initialState } = useModel('@@initialState');
-  let uid = '';
-  if (initialState && initialState.data) uid = initialState.data.uid;
-  // const [top, setTop] = useState(10)
   const [imageInfoList, setImageInfoList] = useState<TypeImageInfo[]>([]);
   const [oneList, setOneList] = useState<TypeImageInfo[]>([]);
-  const [oneNum, setOneNum] = useState<number>(0);
   const [twoList, setTwoList] = useState<TypeImageInfo[]>([]);
-  const [twoNum, setTwoNum] = useState<number>(0);
   const [threeList, setThreeList] = useState<TypeImageInfo[]>([]);
-  const [threeNum, setThreeNum] = useState<number>(0);
   const [fourList, setFourList] = useState<TypeImageInfo[]>([]);
-  const [fourNum, setFourNum] = useState<number>(0);
+  const [begin, setBegin] = useState<number>(0);
 
-  const getNumByImage = (width: number, height: number) => {
-    if (width / height > 3 / 4) {
-      return 3; //pc高度
-    } else if (height / width > 3 / 4) {
-      return 6; //phone高度比
-    } else {
-      return 4; //插画高度
-    }
-  };
   const selectList = (
     one: number,
     two: number,
@@ -56,14 +54,14 @@ export default () => {
       const tempTwo = [...twoList];
       const tempThree = [...threeList];
       const tempFour = [...fourList];
-      let one = oneNum;
-      let two = twoNum;
-      let three = threeNum;
-      let four = fourNum;
+      let one = divOne.current?.clientHeight;
+      let two = divTwo.current?.clientHeight;
+      let three = divThree.current?.clientHeight;
+      let four = divFour.current?.clientHeight;
 
       imageInfoList.forEach((imgInfo) => {
         const img = imgInfo.image;
-        const num = getNumByImage(img.width, img.height);
+        const num = (img.height / img.width) * 265.2;
         const next = selectList(one, two, three, four);
         if (next == 1) {
           one += num;
@@ -80,85 +78,103 @@ export default () => {
         }
       });
       setOneList(tempOne);
-      setOneNum(one);
       setTwoList(tempTwo);
-      setTwoNum(two);
       setThreeList(tempThree);
-      setThreeNum(three);
       setFourList(tempFour);
-      setFourNum(four);
       setImageInfoList([]); //为空
-      console.log(1, tempOne);
-      console.log(2, tempTwo);
-      console.log(3, tempThree);
-      console.log(4, tempFour);
     }
   }, [imageInfoList]);
   useEffect(() => {
-    const post = {
-      uid: uid,
-      begin: 0,
-      limit: 20,
+    GETIMAGE();
+  }, []); //初始化
+  const GETIMAGE = () => {
+    const params = {
+      uid: initialState ? initialState.data.uid : '',
+      tag: type,
+      begin: begin,
+      rows: 10,
     };
-    GET_ImageByCreateTime(post)
+    GET_ImageByTags(params)
       .then((res) => {
         if (res.data.result) {
+          const backNum = res.data.data.length;
           setImageInfoList(res.data.data);
+          setBegin(begin + backNum);
+          console.log(begin, res.data.data);
         } else {
           setImageInfoList([]);
         }
       })
-      .catch((err) => console.log(err))
-      .finally(() => {
-        // setLoading(false)
-      });
-  }, []);
-
+      .catch((err) => console.log(err));
+  };
   return (
     <div>
-      {/*<Affix offsetTop={top}>*/}
-      {/*  <Button type="primary" onClick={() => setTop(top + 10)}>*/}
-      {/*    Affix top*/}
-      {/*  </Button>*/}
-      {/*</Affix>*/}
-      <Row>
-        <Col span={6}>
-          {oneList.length > 0 ? (
-            oneList.map((imgInfo) => {
-              return <ImageCard key={imgInfo.image.href} imageInfo={imgInfo} />;
-            })
-          ) : (
-            <Skeleton />
-          )}
-        </Col>
-        <Col span={6}>
-          {twoList.length > 0 ? (
-            twoList.map((imgInfo) => {
-              return <ImageCard key={imgInfo.image.href} imageInfo={imgInfo} />;
-            })
-          ) : (
-            <Skeleton />
-          )}
-        </Col>
-        <Col span={6}>
-          {threeList.length > 0 ? (
-            threeList.map((imgInfo) => {
-              return <ImageCard key={imgInfo.image.href} imageInfo={imgInfo} />;
-            })
-          ) : (
-            <Skeleton />
-          )}
-        </Col>
-        <Col span={6}>
-          {fourList.length > 0 ? (
-            fourList.map((imgInfo) => {
-              return <ImageCard key={imgInfo.image.href} imageInfo={imgInfo} />;
-            })
-          ) : (
-            <Skeleton />
-          )}
-        </Col>
-      </Row>
+      <InfiniteScroll
+        dataLength={begin} //This is important field to render the next data
+        next={GETIMAGE}
+        hasMore={begin % 10 == 0} //为false时next不会触发
+        loader={<h4>Loading...</h4>}
+        endMessage={
+          <p style={{ textAlign: 'center' }}>
+            <b>已经很多了~仔细浏览一下吧</b>
+          </p>
+        }
+      >
+        <Row>
+          <Col span={6}>
+            <div ref={divOne} style={{ width: 'fit-content' }}>
+              {oneList.length > 0 ? (
+                oneList.map((imgInfo) => {
+                  return (
+                    <ImageCard key={imgInfo.image.href} imageInfo={imgInfo} />
+                  );
+                })
+              ) : (
+                <Skeleton />
+              )}
+            </div>
+          </Col>
+          <Col span={6}>
+            <div ref={divTwo} style={{ width: 'fit-content' }}>
+              {twoList.length > 0 ? (
+                twoList.map((imgInfo) => {
+                  return (
+                    <ImageCard key={imgInfo.image.href} imageInfo={imgInfo} />
+                  );
+                })
+              ) : (
+                <Skeleton />
+              )}
+            </div>
+          </Col>
+          <Col span={6}>
+            <div ref={divThree} style={{ width: 'fit-content' }}>
+              {threeList.length > 0 ? (
+                threeList.map((imgInfo) => {
+                  return (
+                    <ImageCard key={imgInfo.image.href} imageInfo={imgInfo} />
+                  );
+                })
+              ) : (
+                <Skeleton />
+              )}
+            </div>
+          </Col>
+          <Col span={6}>
+            <div ref={divFour} style={{ width: 'fit-content' }}>
+              {fourList.length > 0 ? (
+                fourList.map((imgInfo) => {
+                  return (
+                    <ImageCard key={imgInfo.image.href} imageInfo={imgInfo} />
+                  );
+                })
+              ) : (
+                <Skeleton />
+              )}
+            </div>
+          </Col>
+        </Row>
+      </InfiniteScroll>
     </div>
   );
 };

@@ -6,17 +6,38 @@ export default defineConfig({
   },
   routes: [
     {
+      path: '/manage',
+      name: '管理中心',
+      component: '@/pages/Layout/LeftLayout',
+      routes: [
+        {
+          path: '/manage',
+          redirect: '/manage/image',
+        },
+        {
+          path: 'image',
+          name: '图片管理',
+          component: '@/pages/Manage/Images/index',
+        },
+        {
+          path: 'user',
+          name: '用户管理',
+          component: '@/pages/Manage/Users/index',
+        },
+      ],
+    },
+    {
       path: '/',
-      component: '@/pages/Layout/index',
+      component: '@/pages/Layout/TopLayout',
       routes: [
         {
           path: '/',
-          redirect: '/home',
+          redirect: '/search',
         },
         {
-          path: '/home',
-          name: '首页',
-          component: '@/pages/Home/index',
+          path: '/search',
+          name: '发现',
+          component: '@/pages/ShowImage/Search/index',
         },
         {
           path: '/rank',
@@ -24,9 +45,9 @@ export default defineConfig({
           component: '@/pages/ShowImage/RankList/index',
         },
         {
-          path: '/search',
-          name: '发现',
-          component: '@/pages/ShowImage/Search/index',
+          path: '/recommend',
+          name: '推荐',
+          component: '@/pages/ShowImage/Recommend/index',
         },
         {
           path: 'concern',
@@ -37,6 +58,12 @@ export default defineConfig({
               name: '订阅',
               component: '@/pages/Concern/user',
             },
+            {
+              path: 'other/:uid',
+              name: '其用户',
+              component: '@/pages/Concern/user/OtherUser.tsx',
+            },
+
             {
               path: 'like',
               // icon:'StarOutlined',//v5取消了二级菜单图标，应为要加载3M的图标库

@@ -65,9 +65,31 @@ export default () => {
         <Tabs.TabPane tab="最新" key="create">
           <CreateTimeImage />
         </Tabs.TabPane>
-        <Tabs.TabPane tab="筛选" key="select">
-          <SelectImage />
+        <Tabs.TabPane tab="动漫" key="1">
+          <SelectImage type={'动漫'} />
         </Tabs.TabPane>
+        <Tabs.TabPane tab="古风" key="2">
+          <SelectImage type={'古风'} />
+        </Tabs.TabPane>
+        <Tabs.TabPane tab="人物" key="3">
+          <SelectImage type={'人物'} />
+        </Tabs.TabPane>
+        <Tabs.TabPane tab="风景" key="4">
+          <SelectImage type={'风景'} />
+        </Tabs.TabPane>
+        <Tabs.TabPane tab="简约" key="5">
+          <SelectImage type={'简约'} />
+        </Tabs.TabPane>
+        <Tabs.TabPane tab="萌宠" key="6">
+          <SelectImage type={'萌宠'} />
+        </Tabs.TabPane>
+        <Tabs.TabPane tab="其他" key="7">
+          <SelectImage type={'其他'} />
+        </Tabs.TabPane>
+
+        {/*<Tabs.TabPane tab="筛选" key="select">*/}
+        {/*  <SelectImage />*/}
+        {/*</Tabs.TabPane>*/}
       </Tabs>
     </div>
   );

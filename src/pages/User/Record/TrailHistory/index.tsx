@@ -1,4 +1,13 @@
-import { Avatar, Col, Descriptions, Image, Row, Tag, Timeline } from 'antd';
+import {
+  Avatar,
+  Col,
+  Descriptions,
+  Image,
+  Row,
+  Skeleton,
+  Tag,
+  Timeline,
+} from 'antd';
 import {
   ClockCircleOutlined,
   EyeOutlined,
@@ -9,26 +18,45 @@ import { useEffect, useState } from 'react';
 import { GET_TrailHistory } from '@/services/HistoryRequest';
 import { useModel } from '@@/plugin-model/useModel';
 import { TypeImage, TypeImageInfo } from '@/types/types';
+import { GET_ImageLikeHistory } from '@/services/ImageLikeRequest';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 export default () => {
   const { initialState } = useModel('@@initialState');
   let uid = '';
   if (initialState && initialState.data) uid = initialState.data.uid;
-  const [recordData, setRecordData] = useState<any[]>();
+  const [recordData, setRecordData] = useState<any[]>([]);
   const [previewImage, setPreviewImage] = useState<TypeImageInfo>();
+  const [begin, setBegin] = useState<number>(0);
+  const [next, setNext] = useState<boolean>(true);
   useEffect(() => {
     if (uid) {
-      GET_TrailHistory(uid)
-        .then((res) => {
-          console.log(res);
-          setRecordData(res.data.data);
-          setPreviewImage(res.data.data[0]);
-        })
-        .catch((err) => console.log(err));
+      NextData();
     }
   }, []);
   const onClickImg = (prop: TypeImageInfo) => {
     setPreviewImage(prop);
+  };
+
+  const NextData = () => {
+    GET_TrailHistory({
+      uid,
+      begin,
+      rows: 6,
+    })
+      .then((res) => {
+        const temp = res.data.data;
+        setBegin(begin + temp.length);
+        setRecordData([...recordData, ...temp]);
+        if (temp.length < 6) {
+          setNext(false);
+        }
+        if (recordData.length == 0) {
+          setPreviewImage(res.data.data[0]);
+        }
+        console.log('请求数据！', temp.length);
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -41,61 +69,80 @@ export default () => {
             overflowY: 'scroll',
             height: 460,
           }}
+          id="scrollableDiv"
         >
-          <Timeline mode={'left'} style={{ paddingTop: 10 }}>
-            {recordData &&
-              recordData.map((re) => {
-                const tempTime =
-                  re.record.updatetime.substring(0, 10) +
-                  ' ' +
-                  re.record.updatetime.substring(11, 16);
-                return (
-                  <Timeline.Item
-                    key={re.record.uid + re.record.hid}
-                    label={
-                      <>
-                        {tempTime}
-                        <Tag style={{ marginLeft: 5 }} color={'blue'}>
-                          {re.record.num}
-                        </Tag>
-                        <p style={{ marginRight: 10 }}>{re.image.title}</p>
-                      </>
-                    }
-                    dot={<ClockCircleOutlined style={{ fontSize: '16px' }} />}
-                  >
-                    <div
-                      onClick={() =>
-                        onClickImg({
-                          image: re.image,
-                          user: re.user,
-                          tags: re.tags,
-                          record: re.record,
-                        })
+          <InfiniteScroll
+            dataLength={begin} //This is important field to render the next data
+            next={NextData}
+            hasMore={next} //为false时next不会触发
+            scrollableTarget="scrollableDiv"
+            loader={
+              <>
+                <Skeleton.Input active={true} size={'small'} block={true} />
+              </>
+            }
+            endMessage={
+              <p style={{ textAlign: 'center' }}>
+                <b>已经没有更多记录了</b>
+              </p>
+            }
+            style={{ overflowX: 'hidden' }}
+          >
+            <Timeline mode={'left'} style={{ paddingTop: 10 }}>
+              {recordData &&
+                recordData.map((re) => {
+                  const tempTime =
+                    re.record.updatetime.substring(0, 10) +
+                    ' ' +
+                    re.record.updatetime.substring(11, 16);
+                  return (
+                    <Timeline.Item
+                      key={re.record.uid + re.record.hid}
+                      label={
+                        <>
+                          {tempTime}
+                          <Tag style={{ marginLeft: 5 }} color={'blue'}>
+                            {re.record.num}
+                          </Tag>
+                          <p style={{ marginRight: 10 }}>{re.image.title}</p>
+                        </>
                       }
-                      style={{ cursor: 'pointer' }}
+                      dot={<ClockCircleOutlined style={{ fontSize: '16px' }} />}
                     >
-                      <Avatar
-                        shape="square"
-                        size={64}
-                        src={'http://localhost:8088/image/' + re.image.href}
-                      />
+                      <div
+                        onClick={() =>
+                          onClickImg({
+                            image: re.image,
+                            user: re.user,
+                            tags: re.tags,
+                            record: re.record,
+                          })
+                        }
+                        style={{ cursor: 'pointer' }}
+                      >
+                        <Avatar
+                          shape="square"
+                          size={64}
+                          src={'http://localhost:8088/image/' + re.image.href}
+                        />
 
-                      {/*<InfoDrawer*/}
-                      {/*  imageInfo={{image, user, tags, record}}*/}
-                      {/*  visible={visible}*/}
-                      {/*  onClose={()=>setVisible(false)}*/}
-                      {/*/>*/}
-                    </div>
-                    {/*<ImageLittleCard  imageInfo={{*/}
-                    {/*  image: re.image,*/}
-                    {/*  user: re.user,*/}
-                    {/*  tags: re.tags,*/}
-                    {/*  record: re.record*/}
-                    {/*}}/>*/}
-                  </Timeline.Item>
-                );
-              })}
-          </Timeline>
+                        {/*<InfoDrawer*/}
+                        {/*  imageInfo={{image, user, tags, record}}*/}
+                        {/*  visible={visible}*/}
+                        {/*  onClose={()=>setVisible(false)}*/}
+                        {/*/>*/}
+                      </div>
+                      {/*<ImageLittleCard  imageInfo={{*/}
+                      {/*  image: re.image,*/}
+                      {/*  user: re.user,*/}
+                      {/*  tags: re.tags,*/}
+                      {/*  record: re.record*/}
+                      {/*}}/>*/}
+                    </Timeline.Item>
+                  );
+                })}
+            </Timeline>
+          </InfiniteScroll>
         </Col>
         <Col span={7}>
           <Descriptions style={{ margin: ' 0 10px' }} title={' '} bordered>
@@ -144,21 +191,27 @@ export default () => {
           }}
         >
           {previewImage ? (
-            <Image
-              // @ts-ignore
-              // width={'100%'}
-              width={
-                previewImage.image.width >= previewImage.image.height
-                  ? '100%'
-                  : null
-              }
-              // height={'100%'}
+            <div
               style={{
-                maxHeight: 460,
-                // maxWidth:460,
+                marginTop: previewImage.image.type == 'PC' ? 60 : 0,
               }}
-              src={'http://localhost:8088/image/' + previewImage.image.href}
-            />
+            >
+              <Image
+                // @ts-ignore
+                // width={'100%'}
+                width={
+                  previewImage.image.width >= previewImage.image.height
+                    ? '100%'
+                    : null
+                }
+                // height={'100%'}
+                style={{
+                  maxHeight: 460,
+                  // maxWidth:460,
+                }}
+                src={'http://localhost:8088/image/' + previewImage.image.href}
+              />
+            </div>
           ) : (
             <Image
               width={460}

@@ -1,191 +1,189 @@
-import {Col, Row, Skeleton} from "antd";
-import {useEffect, useState} from "react";
-import {GET_ImageByTrail} from "@/services/ImageRequest";
-import {TypeImageInfo} from "@/types/types";
-import ImageCard from "@/pages/ShowImage/ImageCard"
-import {useModel} from "@@/plugin-model/useModel";
+import { Col, Row, Skeleton } from 'antd';
+import { useEffect, useRef, useState } from 'react';
+import { GET_ImageByScore, GET_ImageByTrail } from '@/services/ImageRequest';
+import { TypeImageInfo, TypeImageRank } from '@/types/types';
+import ImageCard from '@/pages/ShowImage/ImageCard/index';
+import { useModel } from '@@/plugin-model/useModel';
+import InfiniteScroll from 'react-infinite-scroll-component';
+import RankImageCard from '@/pages/ShowImage/RankList/RankImageCard';
 
-export default ()=>{
-  const { initialState,} = useModel("@@initialState");
-  let uid = '';
-  if(initialState && initialState.data)
-    uid = initialState.data.uid
+export default () => {
+  const { initialState } = useModel('@@initialState');
+  const divOne = useRef();
+  const divTwo = useRef();
+  const divThree = useRef();
+  const divFour = useRef();
+  const [oneList, setOneList] = useState<TypeImageRank[]>([]);
+  const [twoList, setTwoList] = useState<TypeImageRank[]>([]);
+  const [threeList, setThreeList] = useState<TypeImageRank[]>([]);
+  const [fourList, setFourList] = useState<TypeImageRank[]>([]);
 
-  const [imageInfoList,setImageInfoList] = useState<TypeImageInfo[]>([]);
-  const [oneList,setOneList] = useState<TypeImageInfo[]>([]);
-  const [oneNum,setOneNum] = useState<number>(0);
-  const [twoList,setTwoList] = useState<TypeImageInfo[]>([]);
-  const [twoNum,setTwoNum] = useState<number>(0);
-  const [threeList,setThreeList] = useState<TypeImageInfo[]>([]);
-  const [threeNum,setThreeNum] = useState<number>(0);
-  const [fourList,setFourList] = useState<TypeImageInfo[]>([]);
-  const [fourNum,setFourNum] = useState<number>(0);
+  const [imageInfoList, setImageInfoList] = useState<TypeImageRank[]>([]);
+  const [begin, setBegin] = useState<number>(0);
 
-  const getNumByImage = (width: number,height: number)=>{
-    if(width/height > 3/4){
-      return 3;//pc高度
-    }else if(height/width > 3/4){
-      return 6;//phone高度比
-    }else {
-      return 4;//插画高度
-    }
-  }
-  const selectList = (one: number,two: number,three: number,four: number)=>{
+  const selectList = (
+    one: number,
+    two: number,
+    three: number,
+    four: number,
+  ) => {
     let tempNum = one;
-
-    if(tempNum > two){
+    if (tempNum > two) {
       tempNum = two;
     }
-    if(tempNum > three){
+    if (tempNum > three) {
       tempNum = three;
     }
-    if(tempNum > four){
+    if (tempNum > four) {
       tempNum = four;
     }
-
-    if(tempNum == one) return 1;
-    if(tempNum == two) return 2;
-    if(tempNum == three) return 3;
-    if(tempNum == four) return 4;
-
-    // if(oneNum <= twoNum){//排除2
-    //   if(oneNum <= threeNum){//排除2排除3
-    //     if(oneNum <= fourNum){//排除2排除3排除4
-    //       return 1;
-    //     }else {//排除1排除2排除3
-    //       return 4;
-    //     }
-    //   }else {//排除1排除2
-    //     if(threeNum <= fourNum){//排除1、2 、4
-    //       return 3;
-    //     }else {////排除1、2、3
-    //       return 4;
-    //     }
-    //   }
-    // }else {//排除1
-    //   if(twoNum <= threeNum){//排除1排除3
-    //     if(twoNum <= fourNum){//排除1排除3排除4
-    //       return 2;
-    //     }else {//排除1排除2排除3
-    //       return 4
-    //     }
-    //   }else {//排除1排除2
-    //     if(threeNum <= fourNum){//排除1、2 、4
-    //       return 3;
-    //     }else {////排除1、2、3
-    //       return 4
-    //     }
-    //   }
-    //
-    // }
-  }
-
-  useEffect(()=>{
-    if(imageInfoList.length > 0){
+    if (tempNum == one) return 1;
+    if (tempNum == two) return 2;
+    if (tempNum == three) return 3;
+    if (tempNum == four) return 4;
+  };
+  useEffect(() => {
+    if (imageInfoList.length > 0) {
       const tempOne = [...oneList];
       const tempTwo = [...twoList];
       const tempThree = [...threeList];
       const tempFour = [...fourList];
-      let one = oneNum;
-      let two = twoNum;
-      let three = threeNum;
-      let four = fourNum;
+      let one = divOne.current?.clientHeight;
+      let two = divTwo.current?.clientHeight;
+      let three = divThree.current?.clientHeight;
+      let four = divFour.current?.clientHeight;
 
-      imageInfoList.forEach((imgInfo)=>{
+      imageInfoList.forEach((imgInfo) => {
         const img = imgInfo.image;
-        const num = getNumByImage(img.width,img.height)
-        const next = selectList(one,two,three,four);
-        if(next == 1){
+        const num = (img.height / img.width) * 265.2;
+        const next = selectList(one, two, three, four);
+        if (next == 1) {
           one += num;
           tempOne.push(imgInfo);
-        }else if(next == 2){
+        } else if (next == 2) {
           two += num;
           tempTwo.push(imgInfo);
-        }else if(next == 3){
+        } else if (next == 3) {
           three += num;
           tempThree.push(imgInfo);
-        }else if(next == 4){
+        } else if (next == 4) {
           four += num;
           tempFour.push(imgInfo);
         }
-      })
-      setOneList(tempOne);setOneNum(one);
-      setTwoList(tempTwo);setTwoNum(two);
-      setThreeList(tempThree);setThreeNum(three);
-      setFourList(tempFour);setFourNum(four);
-      setImageInfoList([])//为空
+      });
+      setOneList(tempOne);
+      setTwoList(tempTwo);
+      setThreeList(tempThree);
+      setFourList(tempFour);
 
-      console.log(1,tempOne)
-      console.log(2,tempTwo)
-      console.log(3,tempThree)
-      console.log(4,tempFour)
+      setImageInfoList([]); //为空
     }
-  },[imageInfoList])
-
-  useEffect(()=>{
-
-    const post = {
-      uid: uid,
-      begin: 0,
-      limit: 20,
-    }
-    GET_ImageByTrail(post)
+  }, [imageInfoList]);
+  useEffect(() => {
+    GETIMAGE();
+  }, []); //初始化
+  const GETIMAGE = () => {
+    const params = {
+      uid: initialState ? initialState.data.uid : '',
+      begin: begin,
+      rows: 10,
+    };
+    GET_ImageByTrail(params)
       .then((res) => {
-        if(res.data.result){
+        if (res.data.result) {
           setImageInfoList(res.data.data);
-        }else {
+          setBegin(begin + res.data.data.length);
+          // console.log(begin,res.data.data);
+        } else {
           setImageInfoList([]);
         }
       })
-      .catch((err) => console.log(err))
-      .finally(()=> {
-        // setLoading(false)
-      });
-
-  },[])
-
-  return(
-    <Row>
-      <Col span={6}>
-        {
-          oneList.length>0 ? (
-            oneList.map((imgInfo)=>{
-                return (<ImageCard key={imgInfo.image.href} imageInfo={imgInfo} />)
-              }
-            )
-          ) : (<Skeleton  />)
+      .catch((err) => console.log(err));
+  };
+  return (
+    <div>
+      <InfiniteScroll
+        dataLength={begin} //This is important field to render the next data
+        next={GETIMAGE}
+        hasMore={begin < 50} //为false时next不会触发
+        loader={<h4>Loading...</h4>}
+        endMessage={
+          <p style={{ textAlign: 'center' }}>
+            <b>已经很多了~仔细浏览一下吧</b>
+          </p>
         }
-      </Col>
-      <Col span={6}>
-        {
-          twoList.length>0 ? (
-            twoList.map((imgInfo)=>{
-                return (<ImageCard key={imgInfo.image.href} imageInfo={imgInfo} />)
-              }
-            )
-          ) : (<Skeleton  />)
-        }
-      </Col>
-      <Col span={6}>
-        {
-          threeList.length>0 ? (
-            threeList.map((imgInfo)=>{
-                return (<ImageCard key={imgInfo.image.href} imageInfo={imgInfo} />)
-              }
-            )
-          ) : (<Skeleton  />)
-        }
-      </Col>
-      <Col span={6}>
-        {
-          fourList.length>0 ? (
-            fourList.map((imgInfo)=>{
-                return (<ImageCard key={imgInfo.image.href} imageInfo={imgInfo} />)
-              }
-            )
-          ) : (<Skeleton  />)
-        }
-      </Col>
-    </Row>
-  )
-}
+      >
+        <Row>
+          <Col span={6}>
+            <div ref={divOne} style={{ width: 'fit-content' }}>
+              {oneList.length > 0 ? (
+                oneList.map((imgInfo) => {
+                  return (
+                    <RankImageCard
+                      key={imgInfo.image.href}
+                      imageInfo={imgInfo}
+                      type={'trail'}
+                    />
+                  );
+                })
+              ) : (
+                <Skeleton />
+              )}
+            </div>
+          </Col>
+          <Col span={6}>
+            <div ref={divTwo} style={{ width: 'fit-content' }}>
+              {twoList.length > 0 ? (
+                twoList.map((imgInfo) => {
+                  return (
+                    <RankImageCard
+                      key={imgInfo.image.href}
+                      imageInfo={imgInfo}
+                      type={'trail'}
+                    />
+                  );
+                })
+              ) : (
+                <Skeleton />
+              )}
+            </div>
+          </Col>
+          <Col span={6}>
+            <div ref={divThree} style={{ width: 'fit-content' }}>
+              {threeList.length > 0 ? (
+                threeList.map((imgInfo) => {
+                  return (
+                    <RankImageCard
+                      key={imgInfo.image.href}
+                      imageInfo={imgInfo}
+                      type={'trail'}
+                    />
+                  );
+                })
+              ) : (
+                <Skeleton />
+              )}
+            </div>
+          </Col>
+          <Col span={6}>
+            <div ref={divFour} style={{ width: 'fit-content' }}>
+              {fourList.length > 0 ? (
+                fourList.map((imgInfo) => {
+                  return (
+                    <RankImageCard
+                      key={imgInfo.image.href}
+                      imageInfo={imgInfo}
+                      type={'trail'}
+                    />
+                  );
+                })
+              ) : (
+                <Skeleton />
+              )}
+            </div>
+          </Col>
+        </Row>
+      </InfiniteScroll>
+    </div>
+  );
+};

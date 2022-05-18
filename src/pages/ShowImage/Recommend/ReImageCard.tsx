@@ -1,4 +1,4 @@
-import { Avatar, Card, Image, message } from 'antd';
+import { Avatar, Card, Image, message, Tag } from 'antd';
 import Icon, {
   BarsOutlined,
   DislikeOutlined,
@@ -7,22 +7,24 @@ import Icon, {
   HeartOutlined,
   SettingOutlined,
 } from '@ant-design/icons';
-import { Meta } from 'antd/es/list/Item';
-import { TypeImageInfo, TypeRes } from '@/types/types';
+
+import { TypeImageInfo, TypeImageRecom, TypeRes } from '@/types/types';
 import { useEffect, useState } from 'react';
 import InfoDrawer from '@/pages/ShowImage/ImageCard/InfoDrawer';
 import HeartIcon from '@/pages/Layout/Icon/HeartIcon';
 import { NEW_LIKE_DISLIKE, NOT_LIKE_DISLIKE } from '@/services/RecordRequest';
 import { useModel } from '@@/plugin-model/useModel';
 interface Prop {
-  imageInfo: TypeImageInfo;
+  imageInfo: TypeImageRecom;
 }
-
 export default (props: Prop) => {
   const { initialState } = useModel('@@initialState');
-  const { image, record } = props.imageInfo;
+  const { image, record, type, recommend, belongTag } = props.imageInfo;
   const [isLike, setIsLike] = useState<boolean>(false);
-  const [imgInfo, setImgInfo] = useState(image);
+  let remNum = recommend && String(recommend).slice(2, 4);
+  if (Number(remNum) < 40) {
+    remNum = '100';
+  }
   useEffect(() => {
     if (record && record.type == 'like') {
       setIsLike(true);
@@ -39,37 +41,33 @@ export default (props: Prop) => {
       const res = await NOT_LIKE_DISLIKE(like);
       console.log('res', res);
       if (res.data.result) {
-        setImgInfo(res.data.data.image);
+        // setImgInfo(res.data.data.image);
+        // setRecoedInfo(res.data.data.record);
         setIsLike(false);
       } else {
         message.error(res.data.message);
       }
     } else {
       //该变成喜欢了
+      // console.log("onLike:  false => like")
       const res = await NEW_LIKE_DISLIKE(like);
       console.log('res', res);
       if (res.data.result) {
-        setImgInfo(res.data.data.image);
+        // setImgInfo(res.data.data.image);
+        // setRecoedInfo(res.data.data.record);
         setIsLike(true);
       } else {
         message.error(res.data.message);
       }
     }
   };
-
   return (
     <div>
       <Card
         hoverable
         bordered={false}
-        style={
-          {
-            // height: `${100 * getNumByImage(image.width,image.height)}px`,
-            // overflow: 'hidden'
-          }
-        }
         actions={[
-          <InfoDrawer image={imgInfo} />,
+          <InfoDrawer image={image} />,
           <span onClick={onLikeIt}>
             {isLike ? (
               <HeartIcon
@@ -80,6 +78,19 @@ export default (props: Prop) => {
               <HeartOutlined />
             )}
           </span>,
+          <>
+            {type == 'random' ? (
+              <Tag>随机</Tag>
+            ) : (
+              <>
+                {type == 'tag' ? (
+                  <Tag color={'blue'}>{belongTag}</Tag>
+                ) : (
+                  <Tag color={'orange'}>{remNum + '%'}</Tag>
+                )}
+              </>
+            )}
+          </>,
           // <EllipsisOutlined key="ellipsis" />,
           // <DislikeOutlined />,
         ]}

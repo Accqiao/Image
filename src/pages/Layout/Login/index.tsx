@@ -13,9 +13,15 @@ import {
 } from 'antd';
 import React, { useEffect, useState } from 'react';
 import {
+  HomeOutlined,
+  ImportOutlined,
+  PictureOutlined,
+  SoundOutlined,
+  StarOutlined,
   TagOutlined,
   UserDeleteOutlined,
   UserOutlined,
+  WalletOutlined,
 } from '@ant-design/icons';
 import { ToLogin } from '@/services/Login';
 import { useModel } from '@@/plugin-model/useModel';
@@ -26,6 +32,7 @@ export default () => {
   const { initialState, refresh } = useModel('@@initialState');
 
   const [dot, setDot] = useState(false);
+  const [showManage, setShowManage] = useState(true);
   const [isLogin, setIsLogin] = useState<boolean>(false);
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const [isRegister, setIsRegister] = useState<boolean>(false);
@@ -49,11 +56,40 @@ export default () => {
       <Menu.Item key="home" icon={<TagOutlined />}>
         <Link to="/home">首页推荐</Link>
       </Menu.Item>
-
+      <Menu.Item key="collect" icon={<StarOutlined />}>
+        <Link to="/concern/like">我的收藏</Link>
+      </Menu.Item>
       <Menu.Item key="user" icon={<UserOutlined />}>
         <Link to="/user/info">个人中心</Link>
       </Menu.Item>
-      <Menu.Item key="exit" icon={<UserDeleteOutlined />}>
+      {initialState && initialState.data.role === 'admin' ? (
+        <>
+          {showManage ? (
+            <Menu.Item
+              key="manage"
+              icon={<WalletOutlined />}
+              onClick={() => {
+                setShowManage(false);
+                // message.info("点击后台管理--set false")
+              }}
+            >
+              <Link to="/manage">后台管理</Link>
+            </Menu.Item>
+          ) : (
+            <Menu.Item
+              key="/search"
+              icon={<WalletOutlined />}
+              onClick={() => {
+                setShowManage(true);
+                // message.info("点击用户界面--set true")
+              }}
+            >
+              <Link to="/search">用户界面</Link>
+            </Menu.Item>
+          )}
+        </>
+      ) : null}
+      <Menu.Item key="exit" icon={<ImportOutlined />}>
         退出
       </Menu.Item>
     </Menu>

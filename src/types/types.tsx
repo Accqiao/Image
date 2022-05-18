@@ -50,7 +50,25 @@ export interface TypeRecord {
 
 export interface TypeImageInfo {
   image: TypeImage;
-  user: TypeUser;
-  tags: TypeTag[];
+  user?: TypeUser;
+  tags?: TypeTag[];
   record?: TypeRecord;
+}
+export interface TypeImageRank {
+  image: TypeImage;
+  rank: number;
+  record?: TypeRecord;
+}
+
+export interface TypeImageRecom {
+  image: TypeImage;
+  record?: TypeRecord;
+  recommend?: number;
+  belongTag?: string;
+  type: string;
+}
+export interface TypeImageCard {
+  image: TypeImage;
+  user?: TypeUser;
+  tags?: TypeTag[];
 }
