@@ -20,40 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="016e3d73-a4d1-4bf1-9259-ddf92494cd53" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/pages/Layout/TopLayout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/ShowImage/RankList/RankImageCard.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/ShowImage/Recommend/ReImageCard.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/ShowImage/Recommend/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/ConcernRequest.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.umirc.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.umirc.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Concern/Like/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Concern/Like/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Concern/User/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Concern/User/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Home/ImageCarousel/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Home/ImageRecommend/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Home/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Layout/Login/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Layout/Login/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Layout/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Layout/index.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Layout/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Layout/LeftLayout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/ShowImage/ImageCard/InfoDrawer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ShowImage/ImageCard/InfoDrawer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/ShowImage/ImageCard/Operation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Concern/User/OtherUser.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/ShowImage/ImageCard/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ShowImage/ImageCard/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/ShowImage/RankList/RankByLike/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ShowImage/RankList/RankByLike/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/ShowImage/RankList/RankByScore/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ShowImage/RankList/RankByScore/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/ShowImage/RankList/RankByTrail/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ShowImage/RankList/RankByTrail/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/ShowImage/Search/CreateTimeImage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ShowImage/Search/CreateTimeImage/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/ShowImage/Search/RandomImage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ShowImage/Search/RandomImage/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/ShowImage/Search/SelectImage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ShowImage/Search/SelectImage/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/ShowImage/Search/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ShowImage/Search/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/User/Record/TrailHistory/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/User/Record/TrailHistory/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/User/UpLoadImage/UpLoadImage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/User/UpLoadImage/UpLoadImage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/User/UpLoadImage/UploadHistory.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/User/UpLoadImage/UploadHistory.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/HistoryRequest.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/HistoryRequest.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/ImageLikeRequest.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/ImageLikeRequest.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/ImageRequest.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/ImageRequest.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/RecordRequest.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/RecordRequest.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/types.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/types.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,12 +54,12 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/pages/ShowImage/RankList" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../shangmei" />
     <property name="list.type.of.created.stylesheet" value="Less" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="E:\StuProject\WebStorm\react-Image\node_modules\prettier" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
-    <property name="ts.external.directory.path" value="E:\StuProject\WebStorm\react-Image\node_modules\typescript\lib" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.web.browsers" />
+    <property name="ts.external.directory.path" value="S:\StuProject\WebStorm\Image-React\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -187,6 +154,8 @@
       <workItem from="1652067711691" duration="2001000" />
       <workItem from="1652071808615" duration="956000" />
       <workItem from="1652855146767" duration="23108000" />
+      <workItem from="1653384409572" duration="1903000" />
+      <workItem from="1653819621024" duration="267000" />
     </task>
     <task id="LOCAL-00001" summary="上传模块">
       <created>1648709103181</created>
@@ -258,10 +227,11 @@
     <option name="LAST_COMMIT_MESSAGE" value="基本功能" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="230" y="67" width="1089" height="739" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1651001013799">
-      <screen x="0" y="0" width="1549" height="823" />
+    <state x="230" y="68" width="1089" height="739" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1653384471648">
+      <screen x="0" y="0" width="1549" height="831" />
     </state>
     <state x="230" y="67" width="1089" height="739" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1549.823@0.0.1549.823" timestamp="1651001013799" />
+    <state x="230" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1549.831@0.0.1549.831" timestamp="1653384471648" />
     <state x="538" y="212" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1648640529631">
       <screen x="0" y="0" width="1549" height="823" />
     </state>
@@ -271,29 +241,34 @@
     </state>
     <state x="429" y="180" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1317.939@0.0.1317.939" timestamp="1650940682814" />
     <state x="505" y="158" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1549.823@0.0.1549.823" timestamp="1651000126409" />
-    <state x="555" y="167" key="FileChooserDialogImpl" timestamp="1647678327080">
-      <screen x="0" y="0" width="1549" height="823" />
+    <state x="555" y="169" key="FileChooserDialogImpl" timestamp="1653819639385">
+      <screen x="0" y="0" width="1549" height="831" />
     </state>
     <state x="555" y="167" key="FileChooserDialogImpl/0.0.1549.823@0.0.1549.823" timestamp="1647678327080" />
-    <state width="1528" height="176" key="GridCell.Tab.0.bottom" timestamp="1652885912794">
-      <screen x="0" y="0" width="1549" height="823" />
+    <state x="555" y="169" key="FileChooserDialogImpl/0.0.1549.831@0.0.1549.831" timestamp="1653819639385" />
+    <state width="1365" height="219" key="GridCell.Tab.0.bottom" timestamp="1653819889612">
+      <screen x="0" y="0" width="1549" height="831" />
     </state>
     <state width="1528" height="176" key="GridCell.Tab.0.bottom/0.0.1549.823@0.0.1549.823" timestamp="1652885912794" />
+    <state width="1365" height="219" key="GridCell.Tab.0.bottom/0.0.1549.831@0.0.1549.831" timestamp="1653819889612" />
     <state width="806" height="198" key="GridCell.Tab.0.bottom/0.0.826.572@0.0.826.572" timestamp="1650938910361" />
-    <state width="1528" height="176" key="GridCell.Tab.0.center" timestamp="1652885912793">
-      <screen x="0" y="0" width="1549" height="823" />
+    <state width="1365" height="219" key="GridCell.Tab.0.center" timestamp="1653819889612">
+      <screen x="0" y="0" width="1549" height="831" />
     </state>
     <state width="1528" height="176" key="GridCell.Tab.0.center/0.0.1549.823@0.0.1549.823" timestamp="1652885912793" />
+    <state width="1365" height="219" key="GridCell.Tab.0.center/0.0.1549.831@0.0.1549.831" timestamp="1653819889612" />
     <state width="806" height="198" key="GridCell.Tab.0.center/0.0.826.572@0.0.826.572" timestamp="1650938910361" />
-    <state width="1528" height="176" key="GridCell.Tab.0.left" timestamp="1652885912793">
-      <screen x="0" y="0" width="1549" height="823" />
+    <state width="1365" height="219" key="GridCell.Tab.0.left" timestamp="1653819889612">
+      <screen x="0" y="0" width="1549" height="831" />
     </state>
     <state width="1528" height="176" key="GridCell.Tab.0.left/0.0.1549.823@0.0.1549.823" timestamp="1652885912793" />
+    <state width="1365" height="219" key="GridCell.Tab.0.left/0.0.1549.831@0.0.1549.831" timestamp="1653819889612" />
     <state width="806" height="198" key="GridCell.Tab.0.left/0.0.826.572@0.0.826.572" timestamp="1650938910361" />
-    <state width="1528" height="176" key="GridCell.Tab.0.right" timestamp="1652885912794">
-      <screen x="0" y="0" width="1549" height="823" />
+    <state width="1365" height="219" key="GridCell.Tab.0.right" timestamp="1653819889612">
+      <screen x="0" y="0" width="1549" height="831" />
     </state>
     <state width="1528" height="176" key="GridCell.Tab.0.right/0.0.1549.823@0.0.1549.823" timestamp="1652885912794" />
+    <state width="1365" height="219" key="GridCell.Tab.0.right/0.0.1549.831@0.0.1549.831" timestamp="1653819889612" />
     <state width="806" height="198" key="GridCell.Tab.0.right/0.0.826.572@0.0.826.572" timestamp="1650938910361" />
     <state width="1528" height="2" key="GridCell.Tab.1.bottom" timestamp="1651001996296">
       <screen x="0" y="0" width="1549" height="823" />
@@ -343,10 +318,11 @@
       <screen x="0" y="0" width="1549" height="823" />
     </state>
     <state width="1528" height="2" key="GridCell.Tab.3.right/0.0.1549.823@0.0.1549.823" timestamp="1651001996296" />
-    <state x="0" y="0" key="SettingsEditor" timestamp="1650938917114">
-      <screen x="0" y="0" width="826" height="572" />
+    <state x="283" y="60" key="SettingsEditor" timestamp="1653391842953">
+      <screen x="0" y="0" width="1549" height="831" />
     </state>
     <state x="284" y="56" key="SettingsEditor/0.0.1549.823@0.0.1549.823" timestamp="1648541065954" />
+    <state x="283" y="60" key="SettingsEditor/0.0.1549.831@0.0.1549.831" timestamp="1653391842953" />
     <state x="0" y="0" key="SettingsEditor/0.0.826.572@0.0.826.572" timestamp="1650938917114" />
     <state x="367" y="145" key="Vcs.Push.Dialog.v2" timestamp="1652855285456">
       <screen x="0" y="0" width="1549" height="823" />
